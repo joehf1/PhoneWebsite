@@ -73,6 +73,20 @@ h1.big{margin:8px 16px 10px;font-size:30px;font-weight:700}
 .rise{animation:lpRise .4s cubic-bezier(.2,.9,.3,1) backwards}
 .quiet .rise,.quiet .bub,.quiet .press,.quiet .tap,.quiet [style*="lpRise"],.quiet [style*="lpTile"],.quiet [style*="lpIconIn"],.quiet [style*="lpBadge"],.quiet [style*="lpReveal"],.quiet [style*="lpCard"]{animation:none!important}
 .closing{transform:scale(.82)!important;opacity:0!important;transition:transform .24s ease-in,opacity .24s ease-in}
+/* full-screen on phones */
+html.mobile body{overscroll-behavior:none}
+html.mobile .stage{background:#000}
+html.mobile .device{width:100vw;height:100vh;height:100dvh;padding:0;border-radius:0;box-shadow:none;background:none;transform:none!important}
+html.mobile .screen{width:100%;height:100%;border-radius:0}
+html.mobile .status{height:calc(env(safe-area-inset-top, 0px) + 12px)}
+html.mobile .status > div:first-child,html.mobile #sbTime{visibility:hidden}
+html.mobile .island{top:calc(env(safe-area-inset-top, 0px) + 6px);opacity:0;pointer-events:none;
+ transition:width .55s cubic-bezier(.2,1.15,.3,1),height .55s cubic-bezier(.2,1.15,.3,1),border-radius .55s cubic-bezier(.2,1.15,.3,1),opacity .15s ease .4s}
+html.mobile .island.open{width:calc(100vw - 20px);opacity:1;pointer-events:auto;
+ transition:width .55s cubic-bezier(.2,1.15,.3,1),height .55s cubic-bezier(.2,1.15,.3,1),border-radius .55s cubic-bezier(.2,1.15,.3,1),opacity .1s ease}
+html.mobile .island.closing-i{transition:width .38s cubic-bezier(.5,0,.3,1),height .38s cubic-bezier(.5,0,.3,1),border-radius .38s cubic-bezier(.5,0,.3,1),opacity .15s ease .35s}
+html.mobile .island-c{width:100%}
+html.mobile .homebar{bottom:env(safe-area-inset-bottom, 0px)}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 /* whatsapp */
 .bub{max-width:78%;padding:5px 9px 4px;border-radius:10px;animation:lpBubble .32s cubic-bezier(.2,.9,.3,1) backwards}
@@ -294,7 +308,8 @@ function originFrom(el){
   var host = $('screen').getBoundingClientRect(), b = el.getBoundingClientRect();
   var k = host.width / 402, cx = b.left + b.width/2 - host.left, cy = b.top + b.height/2 - host.top;
   S.originL = (cx/host.width*100).toFixed(1)+'% '+(cy/host.height*100).toFixed(1)+'%';
-  S.origin = (cx/host.width*100).toFixed(1)+'% '+((cy-54*k)/(host.height-54*k)*100).toFixed(1)+'%';
+  var sb = document.querySelector('.status').getBoundingClientRect().height;
+  S.origin = (cx/host.width*100).toFixed(1)+'% '+((cy-sb)/(host.height-sb)*100).toFixed(1)+'%';
 }
 
 /* ====== clock ====== */
@@ -838,7 +853,14 @@ document.addEventListener('keydown', function(e){
 });
 
 /* ====== fit to window ====== */
+function isPhone(){
+  var coarse = window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
+  return window.innerWidth <= 600 || (coarse && Math.min(window.innerWidth, window.innerHeight) <= 600);
+}
 function fit(){
+  var m = isPhone();
+  document.documentElement.classList.toggle('mobile', m);
+  if (m) { $('device').style.transform = 'none'; return; }
   var k = Math.min(window.innerWidth / 440, window.innerHeight / 912, 1.15);
   $('device').style.transform = 'scale(' + k + ')';
 }
