@@ -42,6 +42,7 @@ input{font:inherit}
 .view{position:relative;z-index:1;flex:1;min-height:0;display:flex;flex-direction:column}
 .layer{position:absolute;inset:0;background:#000;z-index:0}
 .homebar{position:absolute;z-index:5;left:50%;bottom:0;transform:translateX(-50%);width:180px;height:26px;display:flex;align-items:center;justify-content:center}
+.homebar{touch-action:none;cursor:grab}
 .homebar span{width:138px;height:5px;border-radius:3px;background:rgba(255,255,255,.92)}
 .overlay{position:absolute;inset:0;z-index:6}
 .muted{color:rgba(235,235,245,.6)}
@@ -692,9 +693,63 @@ function renderAlert(){
 }
 
 function bindLock(){
-  var el = $('lockRoot'), y0 = null;
-  el.addEventListener('pointerdown', function(e){ y0 = e.clientY; });
-  el.addEventListener('pointerup', function(e){ if (y0 != null && y0 - e.clientY > 70) unlock(); y0 = null; });
+  var el = $('lockRoot'), y0 = null, d = 0, tr = el.style.transition;
+  el.addEventListener('pointerdown', function(e){ y0 = e.clientY; d = 0; });
+  el.addEventListener('pointermove', function(e){
+    if (y0 == null || unlocking) return;
+    d = Math.max(0, y0 - e.clientY);
+    if (d < 4) return;
+    el.style.transition = 'none';
+    el.style.transform = 'translateY(' + (-d) + 'px)';
+    el.style.opacity = String(1 - Math.min(d / 500, .5));
+  });
+  var end = function(){
+    if (y0 == null) return; y0 = null;
+    el.style.transition = tr;
+    if (d > 70) unlock(); else { el.style.transform = ''; el.style.opacity = ''; }
+    d = 0;
+  };
+  el.addEventListener('pointerup', end);
+  el.addEventListener('pointercancel', end);
+  el.addEventListener('pointerleave', end);
+}
+
+/* swipe up on the home bar to go home, the app follows the finger */
+function bindHomebar(){
+  var hb = $('homebar'), y0 = null, dy = 0, dragging = false;
+  var els = function(){ return [$('view'), $('layer')]; };
+  var clear = function(x){ x.style.transition = ''; x.style.transform = ''; x.style.opacity = ''; x.style.borderRadius = ''; };
+  hb.addEventListener('pointerdown', function(e){
+    if (!IN_APP(S.screen) || closing) return;
+    y0 = e.clientY; dy = 0; dragging = false;
+    try { hb.setPointerCapture(e.pointerId); } catch(err){}
+  });
+  hb.addEventListener('pointermove', function(e){
+    if (y0 == null) return;
+    dy = Math.max(0, y0 - e.clientY);
+    if (dy > 4) dragging = true;
+    if (!dragging) return;
+    var p = Math.min(dy, 320) / 320, t = 'translateY(' + (-dy * .55) + 'px) scale(' + (1 - p * .38) + ')';
+    els().forEach(function(x){ x.style.animation = 'none'; x.style.transition = 'none'; x.style.transform = t; x.style.borderRadius = Math.round(p * 44) + 'px'; });
+  });
+  var end = function(){
+    if (y0 == null) return;
+    y0 = null;
+    if (!dragging) return;
+    dragging = false;
+    hb.dataset.swiped = '1'; setTimeout(function(){ delete hb.dataset.swiped; }, 350);
+    var list = els();
+    if (dy > 60) {
+      closing = true; S.alert = null; renderAlert();
+      list.forEach(function(x){ x.style.transition = 'transform .26s cubic-bezier(.4,0,.8,.6), opacity .26s ease-in'; x.style.transform = 'translateY(-35%) scale(.45)'; x.style.opacity = '0'; });
+      setTimeout(function(){ closing = false; list.forEach(clear); go('home'); }, 260);
+    } else {
+      list.forEach(function(x){ x.style.transition = 'transform .32s cubic-bezier(.2,.9,.3,1.15), border-radius .32s'; x.style.transform = ''; x.style.borderRadius = ''; });
+      setTimeout(function(){ list.forEach(clear); }, 340);
+    }
+  };
+  hb.addEventListener('pointerup', end);
+  hb.addEventListener('pointercancel', end);
 }
 
 var pushTimers = [], bannerTimer = null, pushesStarted = false, lastSms = '';
@@ -780,7 +835,7 @@ function goHome(){
 /* ====== actions ====== */
 var OPEN_APPS = ['wa','photos','phone'];
 var A = {
-  home: goHome,
+  home: function(el){ if (el && el.dataset && el.dataset.swiped) return; goHome(); },
   banner: function(el){
     if (el.dataset.swiped) return;
     var id = el.getAttribute('data-id'); hideBanner();
@@ -888,6 +943,7 @@ function fit(){
   $('device').style.transform = 'scale(' + k + ')';
 }
 window.addEventListener('resize', fit); fit();
+bindHomebar();
 
 /* ====== tick ====== */
 setInterval(function(){
