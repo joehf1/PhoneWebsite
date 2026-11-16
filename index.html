@@ -215,6 +215,14 @@ var CHATS = [
       M('سالم (مسؤل التصنيع)','الزيت بيوصلنا بعد اسبوع جاي من اوروبا','7:20 ص'),
       ME('ياعيال هذا يبيني اداوم الجمعة مو صاحي .','7:31 ص'),
       ME('احتاج احد يعاوني على اسماء المشاهير','7:32 ص') ] },
+  { id:'nomgr', name:'الدوام بدون مدير', group:true, kind:'text', label:'😎', bg:'#2f3b2a', fg:'#ffffff', when:'7:26 ص', unread:2, sub:'محمد، طارق، ياسر، سالم، أنت',
+    msgs:[ D('اليوم'),
+      M('طارق (كريتف ثنيان)','صح المدير مسافر هالاسبوع؟','7:12 ص'),
+      M('محمد (ديجتيل ثنيان)','ايه لين الخميس 😂','7:14 ص'),
+      M('ياسر (خدمة عملاء)','يعني نطلع بدري اليوم؟','7:15 ص'),
+      ME('لا تفرحون، الرئيس التنفيذي يبيني اداوم الجمعة','7:18 ص'),
+      M('سالم (مسؤل التصنيع)','الله يعينك 😂','7:25 ص'),
+      M('طارق (كريتف ثنيان)','فطور بكره عليك اجل','7:26 ص') ] },
   { id:'ceo', name:'الرئيس التنفيذي', kind:'person', bg:'#3a2a18', fg:'#e8c99a', when:'أمس', unread:0, typing:true, sub:'آخر ظهور اليوم 7:18 ص',
     msgs:[ D('أمس'),
       M('الرئيس التنفيذي','عبدالله احتاج منك اسماء مشاهير لافتتاح فرع لبن','9:15 م'),
@@ -268,6 +276,7 @@ var PHOTOS = [
 var HISTORY = ['أفضل طريقة لتغليف العطور للشحن','الجمعة البيضاء ٢٠٢٦','أسعار زجاجات العطر بالجملة','كيف تختار عطر شتوي','أفضل كوفي مختص في الرياض','عبارات تسويقية للعطور'];
 var PUSHES = [
   { after: 6000,  chat: 'mom',   from: 'الوالدة',          texts: ['عبدالله جيت أطلع ملابسك الشتوية ولقيت ريحة عطر فايحة منها للحين!','متى آخر مرة لبستها؟'] },
+  { after: 20000, sms: true,     from: 'الرسائل',          text: 'تم  رفع دعوى : عنوان الدعوى ( العطر جامد )' },
   { after: 30000, chat: 'ceo',   from: 'الرئيس التنفيذي', texts: ['ادق عليق ثلاث مرات ليه ماترد احتاجك تداوم الجمعة'] },
   { after: 60000, chat: 'khala', from: 'خالتي نورة',       texts: ['هالعطر خلص ابي واحد ثاني'] }
 ];
@@ -682,13 +691,15 @@ function bindLock(){
   el.addEventListener('pointerup', function(e){ if (y0 != null && y0 - e.clientY > 70) unlock(); y0 = null; });
 }
 
-var pushTimers = [], bannerTimer = null, pushesStarted = false;
+var pushTimers = [], bannerTimer = null, pushesStarted = false, lastSms = '';
 function nowTime(){ var d = new Date(), h = d.getHours(); return (h%12||12)+':'+String(d.getMinutes()).padStart(2,'0')+' '+(h<12?'ص':'م'); }
 function startPushes(){
   if (pushesStarted) return; pushesStarted = true;
   PUSHES.forEach(function(p){ pushTimers.push(setTimeout(function(){ deliver(p); }, p.after)); });
 }
+var SMS_ICON = '<div style="width:44px;height:44px;border-radius:11px;background:linear-gradient(#5df57a,#22c24a);display:flex;align-items:center;justify-content:center"><svg width="28" height="26" viewBox="0 0 28 26" aria-hidden="true"><path d="M14 2C7.4 2 2 6.4 2 11.8c0 3.1 1.8 5.9 4.6 7.7L5.4 24l5.1-2.8c1.1.3 2.3.4 3.5.4 6.6 0 12-4.4 12-9.8S20.6 2 14 2z" fill="#fff"/></svg></div>';
 function deliver(p){
+  if (p.sms) { showBanner(null, p); return; }
   var c = chatById(p.chat); if (!c) return;
   var t = nowTime(), texts = p.texts || [p.text];
   var lastDay = null; for (var k = c.msgs.length - 1; k >= 0; k--) if (c.msgs[k].day) { lastDay = c.msgs[k].day; break; }
@@ -713,10 +724,12 @@ function showBanner(c, p){
   var isl = $('island');
   clearTimeout(bannerTimer);
   var fill = function(){
-    isl.innerHTML = '<button class="island-c" id="banner" data-a="banner" data-id="'+c.id+'" aria-label="'+esc(c.name)+': '+esc(p.text)+'">'
-      + '<div style="position:relative">'+avatar(c,44)+'<span style="position:absolute;left:-2px;bottom:-2px;width:16px;height:16px;border-radius:50%;background:#25d366;border:2px solid #000"></span></div>'
-      + '<div style="flex:1;min-width:0"><div style="display:flex;justify-content:space-between;gap:8px"><span style="font-size:13.5px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">'+esc(c.name)+'</span><span style="font-size:11px;color:rgba(235,235,245,.55);flex-shrink:0">الآن</span></div>'
-      + '<p style="margin:2px 0 0;font-size:12.5px;line-height:1.4;color:rgba(255,255,255,.9);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">'+(c.group?esc(p.from.split(' |')[0])+': ':'')+esc(p.text)+'</p></div></button>';
+    var name = c ? c.name : p.from;
+    if (!c) lastSms = p.text;
+    isl.innerHTML = '<button class="island-c" id="banner" data-a="'+(c?'banner':'smsBanner')+'"'+(c?' data-id="'+c.id+'"':'')+' aria-label="'+esc(name)+': '+esc(p.text)+'">'
+      + (c ? '<div style="position:relative">'+avatar(c,44)+'<span style="position:absolute;left:-2px;bottom:-2px;width:16px;height:16px;border-radius:50%;background:#25d366;border:2px solid #000"></span></div>' : SMS_ICON)
+      + '<div style="flex:1;min-width:0"><div style="display:flex;justify-content:space-between;gap:8px"><span style="font-size:13.5px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">'+esc(name)+'</span><span style="font-size:11px;color:rgba(235,235,245,.55);flex-shrink:0">الآن</span></div>'
+      + '<p style="margin:2px 0 0;font-size:12.5px;line-height:1.4;color:rgba(255,255,255,.9);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">'+(c&&c.group?esc(p.from.split(' |')[0])+': ':'')+esc(p.text)+'</p></div></button>';
     isl.classList.remove('closing-i');
     void isl.offsetWidth;
     isl.classList.add('open');
@@ -770,6 +783,10 @@ var A = {
     var wasApp = IN_APP(S.screen);
     if (!wasApp) { S.screen = 'home'; }
     A.chat(row);
+  },
+  smsBanner: function(el){
+    if (el.dataset.swiped) return;
+    hideBanner(); S.alert = lastSms; renderAlert();
   },
   unlock: unlock,
   torch: function(){ S.torch = !S.torch; render(); },
