@@ -60,6 +60,7 @@ h1.big{margin:8px 16px 10px;font-size:30px;font-weight:700}
 .badge{position:absolute;top:-6px;right:-6px;min-width:20px;height:20px;padding:0 4px;border-radius:10px;background:#ff3b30;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center}
 /* motion */
 @keyframes lpAppIn{from{opacity:0;transform:scale(.84);border-radius:44px}to{opacity:1;transform:scale(1)}}
+@keyframes lpVoice{from{transform:scaleY(.45)}to{transform:scaleY(1.15)}}
 @keyframes lpHomeIn{from{opacity:0;transform:scale(1.08)}to{opacity:1;transform:scale(1)}}
 @keyframes lpPushIn{from{transform:translateX(-100%);box-shadow:20px 0 40px rgba(0,0,0,.6)}to{transform:translateX(0)}}
 @keyframes lpPopIn{from{transform:translateX(28%);opacity:.5}to{transform:translateX(0);opacity:1}}
@@ -230,22 +231,47 @@ var CHATS = [
       M('ابو محمد','بس اذا نزلت تذاكر النخبة منشنوني','1:21 ص'),
       M('سعد','حتى لو ماجبناها قولوا لي كم عنده؟','1:29 ص'),
       M('تركي','نخبتييييين نخبتيين 💚💚💚','1:34 ص') ] },
-  { id:'ceo', name:'الرئيس التنفيذي', kind:'person', bg:'#3a2a18', fg:'#e8c99a', when:'أمس', unread:0, typing:true, sub:'آخر ظهور اليوم 7:18 ص',
+  { id:'ceo', name:'الرئيس التنفيذي', kind:'person', bg:'#3a2a18', fg:'#e8c99a', when:'7:18 ص', unread:1, typing:true, sub:'آخر ظهور اليوم 7:18 ص',
     msgs:[ D('أمس'),
       M('الرئيس التنفيذي','عبدالله احتاج منك اسماء مشاهير لافتتاح فرع لبن','9:15 م'),
       M('الرئيس التنفيذي','رابط الشيت','9:15 م', { link:'docs.google.com/spreadsheets' }),
-      ME('ابشر','9:20 م') ] },
+      ME('ابشر','9:20 م'),
+      D('اليوم'),
+      M('الرئيس التنفيذي','اصلا انت مواليد الفين ماينشره عليك','7:18 ص') ] },
+  { id:'bro', name:'أخوي 🎮', kind:'person', bg:'#24304a', fg:'#a9c1f0', when:'6:57 ص', unread:0, sub:'آخر ظهور اليوم 7:00 ص',
+    msgs:[ D('اليوم'),
+      M('أخوي','عبدالله تكفى ابي قراند','6:50 ص'),
+      ME('انا شاريها انسخها من حسابي فالسوني','6:57 ص') ] },
+  { id:'tabby', name:'تابي Tabby', kind:'text', label:'tabby', bg:'#3bffc1', fg:'#000', when:'6:30 ص', unread:1, sub:'حساب أعمال',
+    msgs:[ D('اليوم'),
+      M('تابي','عاجل: بدأت الإجراءات القانونية الداخلية بخصوص المبلغ المستحق 5599,80 ر.س\nقد يؤدي استمرار عدم السداد إلى إدراجك متعثرًا لدى مكتب المعلومات وفرض رسوم قانونية وإدارية','6:30 ص') ] },
   /* archived */
-  { id:'hr', name:'خالد HR', archived:true, kind:'text', label:'HR', bg:'#2b3a4a', fg:'#cfe3f5', when:'الأحد', unread:0, sub:'حساب أعمال',
+  { id:'hr', name:'خالد HR', archived:true, kind:'text', label:'HR', bg:'#2b3a4a', fg:'#cfe3f5', when:'7:02 ص', unread:0, sub:'حساب أعمال',
     msgs:[ D('الأحد'),
       M('خالد HR','السلام عليكم\nيسعدنا إبلاغك بأنه تم ترشيحك لشغل منصب لدينا، وبمميزات وظيفية وراتب مجزٍ.\nونتطلع لمعرفة مدى اهتمامك بالفرصة لاستكمال الإجراءات','11:20 ص'),
-      ME('عليكم السلام\nغير مهتم','1:05 م') ] },
+      ME('عليكم السلام\nغير مهتم','1:05 م'),
+      D('اليوم'),
+      Object.assign(ME('','7:02 ص'), { voice:'0:04', say:'تكفى تكفى تكفى' }) ] },
   { id:'unknown', name:'⁦+966 54 ••• ••17⁩', archived:true, kind:'person', bg:'#3a3a3c', fg:'#aeaeb2', when:'الخميس', unread:0, sub:'ليس في جهات الاتصال',
     msgs:[ D('الخميس'),
       M('رقم غريب','السلام عليكم اذا ماعليك امر اسم العطر اللي جيت فيه التمرين','9:12 م'),
       ME('عليكم السلام ديكتاتور سبورت','9:30 م'),
       M('رقم غريب','يعطيك العافيه','9:31 م') ] }
 ];
+
+var SAFARI_SVG = (function(){
+  var ticks = '';
+  for (var i = 0; i < 72; i++) {
+    var a = i * 5 * Math.PI / 180, long = i % 6 === 0, r1 = long ? 18.2 : 19.6, r2 = 21.6;
+    ticks += '<line x1="'+(25+r1*Math.sin(a)).toFixed(2)+'" y1="'+(25-r1*Math.cos(a)).toFixed(2)+'" x2="'+(25+r2*Math.sin(a)).toFixed(2)+'" y2="'+(25-r2*Math.cos(a)).toFixed(2)+'" stroke="#fff" stroke-opacity="'+(long?.95:.6)+'" stroke-width="'+(long?.9:.5)+'"/>';
+  }
+  return '<svg width="50" height="50" viewBox="0 0 50 50" aria-hidden="true"><defs><linearGradient id="sfG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1fd2ff"/><stop offset="1" stop-color="#1a5cf0"/></linearGradient></defs>'
+    + '<circle cx="25" cy="25" r="23.5" fill="url(#sfG)"/>' + ticks
+    + '<g transform="rotate(45 25 25)"><path d="M25 7.5L28.2 25H21.8z" fill="#ff3b30"/><path d="M25 42.5L21.8 25h6.4z" fill="#fff"/></g>'
+    + '<circle cx="25" cy="25" r="1.4" fill="#fff"/></svg>';
+})();
+
+var ME_AVATAR ={ id:'me', name:'حالتي', kind:'text', label:'ع', bg:'#5a4a36', fg:'#fff' };
 
 var CALLS = [
   ['الرئيس التنفيذي','جوال · مكالمة فائتة','٧:١٥ ص',1],['الرئيس التنفيذي','جوال · مكالمة فائتة','٧:١٠ ص',1],['الرئيس التنفيذي','جوال · مكالمة فائتة','٧:٠٥ ص',1],
@@ -256,7 +282,9 @@ var NOTES = [
   { title:'مهام اليوم', time:'١:٤٧ ص', check:true, lines:['أخلص تقرير حملة الجمعة البيضاء','أجهز أسماء المشاهير لافتتاح فرع لبن','أراجع تصميم علبة الجمعة البيضاء مع ريم','أكلم نورة عن موعد البوست','أرجّع شرائط التجربة للمختبر'] },
   { title:'ملف الجمعة', time:'٢:١٠ ص', lines:['الرمز = يوم الإطلاق + رقم الشهر','لا تنساه مثل المرة اللي فاتت 🙃'] },
   { title:'اجتماع الإطلاق', time:'١٠:٤٢ م', lines:['الموعد: الجمعة البيضاء ✓','العلبة: معتمدة','الكميات: ███','العرض: سري حتى يوم الإطلاق'] },
-  { title:'أفكار', time:'أمس', lines:['ريحة أول قهوة في ليلة شتاء','شي يبقى في المكان بعد ما تطلع منه'] }
+  { title:'أفكار', time:'أمس', lines:['ريحة أول قهوة في ليلة شتاء','شي يبقى في المكان بعد ما تطلع منه'] },
+  { title:'طموحات عبدالله', time:'أمس', check:true, lines:['أول ما أتوظف في ثنيان:','أتزوج 💍','أشتري سيارة جديدة 🚗','أسدد قسط الجوال وأفتك من تابي','آخذ الوالدة عمرة'] },
+  { title:'قصايدي', time:'الأحد', lines:['سارعي للمجد والعلياء','مجّدي لخالق السماء','وارفعي الخفّاق أخضر','يحمل النور المسطّر','رددي الله أكبر','يا موطني','موطني عشت فخر المسلمين','عاش المليك','للعلم والوطن'] }
 ];
 
 var EVENTS = {
@@ -296,7 +324,7 @@ function chatById(id){ return CHATS.filter(function(x){ return x.id === id; })[0
 function preview(c){
   for (var i = c.msgs.length - 1; i >= 0; i--) {
     var m = c.msgs[i]; if (m.day || m.banner) continue;
-    var t = m.img ? '📷 صورة' : m.link ? '🔗 ' + m.t : m.t;
+    var t = m.voice ? '🎤 رسالة صوتية (' + m.voice + ')' : m.img ? '📷 صورة' : m.link ? '🔗 ' + m.t : m.t;
     t = t.replace(/\n/g, ' ');
     if (m.mine) return '✓✓ ' + t;
     return (c.group ? m.from.split(' |')[0].split(' (')[0] + ': ' : '') + t;
@@ -398,7 +426,7 @@ V.home = function(){
     + '<div style="margin-top:auto;display:flex;justify-content:center;padding-bottom:14px"><div style="display:flex;align-items:center;gap:6px;height:28px;padding:0 14px;border-radius:14px;background:rgba(72,60,48,.6);font-size:12px;font-weight:500">بحث</div></div>'
     + '<div style="margin:0 10px 30px;height:88px;border-radius:34px;background:rgba(72,60,48,.45);display:flex;align-items:center;justify-content:space-around;padding:0 12px">'
     + '<button class="press" data-a="open" data-s="phone" aria-label="الهاتف" style="position:relative;'+d()+'"><div class="ic" style="background:linear-gradient(#5df57a,#22c24a)"><svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z" fill="#fff"/></svg></div><span class="badge">٣</span></button>'
-    + '<button class="press" data-a="open" data-s="safari" aria-label="Safari" style="'+d()+'"><div class="ic" style="background:#fff"><svg width="42" height="42" viewBox="0 0 42 42" aria-hidden="true"><circle cx="21" cy="21" r="19" fill="#1e90ff"/><path d="M29 13L23 23 13 29l6-10z" fill="#fff"/><path d="M29 13L19 19l4 4z" fill="#ff3b30"/></svg></div></button>'
+    + '<button class="press" data-a="open" data-s="safari" aria-label="Safari" style="'+d()+'"><div class="ic" style="background:linear-gradient(#ffffff,#e9e9ee)">'+SAFARI_SVG+'</div></button>'
     + '<button class="press" data-a="open" data-s="wa" aria-label="واتساب" style="position:relative;'+d()+'"><div class="ic" style="background:linear-gradient(#5df57a,#22c24a)"><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3z" fill="none" stroke="#fff" stroke-width="2.2" stroke-linejoin="round"/><path d="M11.5 10.5c.4-.4 1.2-.4 1.5.1l1.2 2.4c.2.4 0 .9-.3 1.2l-.7.6a8 8 0 0 0 4 4l.6-.7c.3-.3.8-.5 1.2-.3l2.4 1.2c.5.3.5 1.1.1 1.5-1 1-2.6 1.3-4 .7a12 12 0 0 1-6.7-6.7c-.6-1.4-.3-3 .7-4z" fill="#fff"/></svg></div>'+(u?'<span class="badge" style="animation:lpBadge .35s cubic-bezier(.2,.9,.3,1.3) .35s backwards">'+AR(u)+'</span>':'')+'</button>'
     + '<button class="press" data-a="open" data-s="music" aria-label="الموسيقى" style="'+d()+'"><div class="ic" style="background:linear-gradient(#ff6482,#fa2d48)"><svg width="26" height="28" viewBox="0 0 26 28" aria-hidden="true"><path d="M9 21V5l15-3v16" fill="none" stroke="#fff" stroke-width="2.4" stroke-linejoin="round"/><ellipse cx="5.5" cy="21.5" rx="4.5" ry="3.8" fill="#fff"/><ellipse cx="20.5" cy="18.5" rx="4.5" ry="3.8" fill="#fff"/></svg></div></button>'
     + '</div></div>';
@@ -460,9 +488,9 @@ V.wa = function(){
     var st = function(c, ago, i){ return '<button class="tap rise" data-a="status" data-id="'+c.id+'" style="animation-delay:'+(60+i*50)+'ms;width:100%;display:flex;align-items:center;gap:12px;padding:9px 16px;text-align:right"><div style="padding:2px;border-radius:50%;border:2.5px solid #21c063">'+avatar(c,44)+'</div><div><p style="margin:0;font-size:14.5px;font-weight:700">'+esc(c.name)+'</p><p class="muted" style="margin:1px 0 0;font-size:12.5px">'+ago+'</p></div></button>'; };
     body = '<h1 class="big" style="margin-top:12px">التحديثات</h1>'
       + '<div class="scroll"><p style="margin:4px 16px 8px;font-size:17px;font-weight:700">الحالة</p>'
-      + '<div style="display:flex;align-items:center;gap:12px;padding:6px 16px 14px"><div style="position:relative">'+avatar({kind:'text',label:'ع',bg:'#5a4a36',fg:'#fff'},48)+'<span style="position:absolute;bottom:-2px;left:-2px;width:18px;height:18px;border-radius:50%;background:#21c063;border:2px solid #000;color:#000;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;line-height:1">+</span></div><div><p style="margin:0;font-size:14.5px;font-weight:700">حالتي</p><p class="muted" style="margin:1px 0 0;font-size:12.5px">أضف حالة</p></div></div>'
+      + '<button class="tap" data-a="status" data-id="me" style="width:100%;display:flex;align-items:center;gap:12px;padding:6px 16px 14px;text-align:right"><div style="position:relative;padding:2px;border-radius:50%;border:2.5px solid #21c063">'+avatar(ME_AVATAR,44)+'</div><div><p style="margin:0;font-size:14.5px;font-weight:700">حالتي</p><p class="muted" style="margin:1px 0 0;font-size:12.5px">اليوم ٦:٢٠ ص</p></div></button>'
       + '<p class="muted" style="margin:0 16px 4px;font-size:12px">التحديثات الأخيرة</p>'
-      + st(chatById('snap'),'منذ ١٠ دقائق',0) + st(chatById('billionaire'),'منذ ساعة',1) + st(chatById('khala'),'اليوم ٧:٣٠ ص',2)
+      + st(chatById('ceo'),'منذ ٥ دقائق',0) + st(chatById('mom'),'منذ ٢٠ دقيقة',1) + st(chatById('khala'),'اليوم ٧:٣٠ ص',2) + st(chatById('snap'),'منذ ساعة',3) + st(chatById('billionaire'),'منذ ساعتين',4)
       + '</div>';
   } else if (S.waTab === 'calls') {
     var rows = CALLS.map(function(k,i){ return '<div class="rise" style="animation-delay:'+(60+i*45)+'ms;display:flex;align-items:center;gap:12px;padding:8px 16px">'+avatar({kind:'person',bg:'#2c2c2e',fg:'#aeaeb2'},40)+'<div style="flex:1;min-width:0;border-bottom:.5px solid #262626;padding-bottom:8px"><p style="margin:0;font-size:14.5px;font-weight:600;color:'+(k[3]?'#ff453a':'#fff')+'">'+esc(k[0])+'</p><p class="muted" style="margin:1px 0 0;font-size:12.5px">'+(k[3]?'↙ فائتة':'صوتية')+' · '+k[2]+'</p></div></div>'; }).join('');
@@ -472,7 +500,7 @@ V.wa = function(){
   } else {
     var rowsY = [['الحساب','#0a84ff'],['الخصوصية','#30d158'],['الدردشات','#21c063'],['الإشعارات','#ff453a'],['التخزين والبيانات','#30b0c7']];
     body = '<h1 class="big" style="margin-top:12px">أنت</h1><div class="scroll" style="padding:0 16px">'
-      + '<div class="card rise" style="display:flex;align-items:center;gap:12px;padding:12px 14px;margin-bottom:16px">'+avatar({kind:'text',label:'ع',bg:'#5a4a36',fg:'#fff'},56)+'<div><p style="margin:0;font-size:17px;font-weight:700">عبدالله</p><p class="muted" style="margin:1px 0 0;font-size:12.5px">مشغول بحملة الجمعة البيضاء 🤍</p></div></div>'
+      + '<div class="card rise" style="display:flex;align-items:center;gap:12px;padding:12px 14px;margin-bottom:16px">'+avatar(ME_AVATAR,56)+'<div><p style="margin:0;font-size:17px;font-weight:700;display:flex;align-items:center;gap:7px">عبدالله <span style="padding:1px 8px;border-radius:6px;background:#c9a46a;color:#1a1206;font-size:12px;font-weight:700">ثنيان</span></p><p class="muted" style="margin:2px 0 0;font-size:12.5px">باحث عن وظيفة</p></div></div>'
       + '<div class="card rise" style="animation-delay:60ms">'+rowsY.map(function(r){ return '<button class="tap" data-a="locked" style="width:100%;display:flex;align-items:center;gap:12px;padding:0 14px;text-align:right"><span style="width:29px;height:29px;border-radius:7px;background:'+r[1]+'"></span><span style="flex:1;padding:12px 0;border-bottom:.5px solid #2c2c2e;font-size:15px">'+r[0]+'</span></button>'; }).join('')+'</div></div>';
   }
   return '<div style="flex:1;min-height:0;display:flex;flex-direction:column;background:#000">' + body + waTabbar() + '</div>';
@@ -497,7 +525,12 @@ V.chat = function(){
     var delay = Math.max(0, i-(n-10))*35+80;
     var st = 'animation-delay:'+delay+'ms;margin-top:'+(same?'0':'6px')+';';
     prev = m;
-    var body = (m.img && m.src != null)
+    var body = m.voice
+      ? '<button data-a="voice" data-say="'+esc(m.say||'')+'" aria-label="تشغيل الرسالة الصوتية" style="display:flex;align-items:center;gap:9px;width:210px;padding:4px 2px 2px;direction:ltr">'
+        + '<span class="vplay" style="width:30px;height:30px;flex-shrink:0;display:flex;align-items:center;justify-content:center"><svg width="16" height="18" viewBox="0 0 16 18" aria-hidden="true"><path d="M2 1.5v15L15 9z" fill="#e9edef"/></svg></span>'
+        + '<span class="vwave" style="flex:1;display:flex;align-items:center;gap:2px;height:26px">'+[6,12,18,9,22,14,8,20,11,16,7,19,13,9,15,6,11,17,8,12,5,9].map(function(h,k){ return '<i style="display:block;width:3px;height:'+h+'px;border-radius:2px;background:rgba(233,237,239,.55);animation-delay:'+(k*40)+'ms"></i>'; }).join('')+'</span>'
+        + '<span style="font-size:11px;color:rgba(233,237,239,.7);flex-shrink:0">'+m.voice+'</span></button>'
+      : (m.img && m.src != null)
       ? '<img src="'+PHOTOS[m.src][1]+'" alt="'+esc(m.img)+'" style="display:block;width:220px;height:300px;object-fit:cover;margin:2px -5px 4px;border-radius:8px">'
       : m.img
       ? '<div style="width:220px;height:260px;margin:2px -5px 4px;border-radius:8px;background:linear-gradient(160deg,#6a5236,#1e160c);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:rgba(255,255,255,.75);font-size:12px"><svg width="34" height="30" viewBox="0 0 34 30" aria-hidden="true"><rect x="1" y="1" width="32" height="28" rx="4" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="11" cy="10" r="3" fill="currentColor"/><path d="M3 25l9-9 6 6 5-4 9 7" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><span>'+esc(m.img)+'</span></div>'
@@ -865,11 +898,37 @@ var A = {
   waTab: function(el){ var t = el.getAttribute('data-id'); if (t === S.waTab) return; S.waTab = t; S.anim = 'fade'; render(); },
   locked: function(){ S.alert = 'ما تقدر ترسل أو تعدّل من جوال غيرك 😅'; renderAlert(); },
   status: function(el){
-    var c = chatById(el.getAttribute('data-id'));
-    var text = { snap:'الليلة لايف… فيه مفاجأة 👀', billionaire:'Mars soon 🚀', khala:'صباح الخير 🌸' }[c.id] || '';
+    var id = el.getAttribute('data-id');
+    var c = id === 'me' ? ME_AVATAR : chatById(id);
+    var text = {
+      me:'مايقدرون موهبتي وسرعتي',
+      ceo:'اللهم اجرني في مصيبتي',
+      mom:'يارب وفق ولدي واجره في مصيبته',
+      khala:'حسبي الله ونعم الوكيل',
+      snap:'الليلة لايف… فيه مفاجأة 👀',
+      billionaire:'Mars soon 🚀'
+    }[id] || '';
     var o = $('overlay'); o.hidden = false;
     o.innerHTML = '<button data-a="closeStatus" aria-label="إغلاق" style="position:absolute;inset:0;background:#0b0b0b;display:flex;flex-direction:column;animation:lpFade .2s ease-out backwards;text-align:center"><div style="margin:58px 12px 0;height:3px;border-radius:2px;background:rgba(255,255,255,.3);overflow:hidden"><div style="height:100%;background:#fff;transform-origin:right;animation:lpBar 4s linear forwards"></div></div><div style="display:flex;align-items:center;gap:10px;padding:12px 14px">'+avatar(c,34)+'<span style="font-size:14px;font-weight:700">'+esc(c.name)+'</span></div><div style="flex:1;display:flex;align-items:center;justify-content:center;padding:30px;font-size:26px;font-weight:700;line-height:1.5">'+esc(text)+'</div></button>';
     clearTimeout(A._st); A._st = setTimeout(function(){ A.closeStatus(); }, 4000);
+  },
+  voice: function(el){
+    if (el.dataset.playing) return;
+    el.dataset.playing = '1';
+    var bars = el.querySelectorAll('.vwave i'), play = el.querySelector('.vplay');
+    var playIc = play.innerHTML;
+    play.innerHTML = '<svg width="14" height="16" viewBox="0 0 14 16" aria-hidden="true"><rect x="1" y="1" width="4" height="14" rx="1" fill="#e9edef"/><rect x="9" y="1" width="4" height="14" rx="1" fill="#e9edef"/></svg>';
+    bars.forEach(function(b){ b.style.animation = 'lpVoice .5s ease-in-out infinite alternate'; b.style.animationDelay = b.style.animationDelay; b.style.background = '#53bdeb'; });
+    var done = function(){ delete el.dataset.playing; play.innerHTML = playIc; bars.forEach(function(b){ b.style.animation = ''; b.style.background = ''; }); };
+    var say = el.getAttribute('data-say'), ended = false, t0 = Date.now();
+    var finish = function(){ if (ended) return; ended = true; setTimeout(done, Math.max(0, 3000 - (Date.now() - t0))); };
+    try {
+      if (say && window.speechSynthesis) {
+        var u = new SpeechSynthesisUtterance(say); u.lang = 'ar-SA'; u.rate = 1.05; u.onend = finish; u.onerror = finish;
+        window.speechSynthesis.cancel(); window.speechSynthesis.speak(u);
+      }
+    } catch(err){}
+    setTimeout(finish, 4000);
   },
   closeStatus: function(){ clearTimeout(A._st); var o = $('overlay'); if (!S.alert) { o.hidden = true; o.innerHTML = ''; } },
   camMode: function(el){ S.camMode = el.getAttribute('data-id'); S.anim = 'none'; render(); },
