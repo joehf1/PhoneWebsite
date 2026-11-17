@@ -1444,13 +1444,18 @@ var CHATS = [
   { id:'billionaire', name:'Elon Musk 🚀', kind:'text', label:'🚀', bg:'#0b1d3a', fg:'#fff', when:'7:38 ص', unread:0, sub:'Mars soon',
     msgs:[ D('اليوم'),
       Object.assign(ME('How much do you charge for an ad? We want to advertise Dictator perfume.','7:38 ص'), { ltr:true }) ] },
-  { id:'azzam', name:'عزام سعد', kind:'person', bg:'#1d3a4a', fg:'#9ccbe6', when:'7:05 ص', unread:1, sub:'آخر ظهور اليوم 7:06 ص',
+  { id:'azzam', name:'عزام سعد', kind:'person', bg:'#1d3a4a', fg:'#9ccbe6', when:'7:46 ص', unread:1, sub:'آخر ظهور اليوم 7:47 ص',
     msgs:[ D('السبت'),
       M('عزام سعد','خلينا نتطلع نتعشى','8:30 م'),
       ME('مقدر','8:41 م'),
       ME('معك سلف ٢٠٠','8:41 م'),
       D('اليوم'),
-      M('عزام سعد','فيه تمرين السبت اسجلك؟','7:05 ص') ] },
+      M('عزام سعد','فيه تمرين السبت اسجلك؟','7:05 ص'),
+      M('عزام سعد','ها يولد وش صار على تمرين السبت','7:38 ص'),
+      ME('يرجال خل التمرين عندي لك قصيدة','7:40 ص'),
+      M('عزام سعد','اسلم','7:40 ص'),
+      ME('جعل السحاب اللي معه برق ورعود\nيمطر على دار ٍ وليفي سكنها\nيسقي وطن منتوقة العنق يا سعود\nمالي وطن بالعارض الا وطنها','7:43 ص'),
+      M('عزام سعد','صح لسانك والله قصيده جزله','7:46 ص') ] },
   { id:'ahli', name:'ابطال النخبتين 💚💚', group:true, kind:'group', bg:'#0f5132', fg:'#d1f2dc', when:'7:52 ص', unread:22, sub:'ابو محمد، سعد، تركي، فهد، أنت',
     msgs:[ D('اليوم'),
       M('ابو محمد','تكفون يعيال الشغف مات من بعد القارات والله','12:48 ص'),
@@ -1519,7 +1524,8 @@ var CHATS = [
   { id:'bro', name:'أخوي 🎮', kind:'person', bg:'#24304a', fg:'#a9c1f0', when:'6:57 ص', unread:0, sub:'آخر ظهور اليوم 7:00 ص',
     msgs:[ D('اليوم'),
       M('أخوي','عبدالله تكفى ابي قراند','6:50 ص'),
-      ME('انا شاريها انسخها من حسابي فالسوني','6:57 ص') ] },
+      ME('انا شاريها انسخها من حسابي فالسوني','6:57 ص'),
+      ME('Abood_Thnyan_2000','6:57 ص') ] },
   { id:'tabby', name:'تابي Tabby', kind:'text', label:'tabby', bg:'#3bffc1', fg:'#000', when:'6:30 ص', unread:1, sub:'حساب أعمال',
     msgs:[ D('اليوم'),
       M('تابي','عاجل: بدأت الإجراءات القانونية الداخلية بخصوص المبلغ المستحق 5599,80 ر.س\nقد يؤدي استمرار عدم السداد إلى إدراجك متعثرًا لدى مكتب المعلومات وفرض رسوم قانونية وإدارية','6:30 ص') ] },
@@ -1763,7 +1769,7 @@ V.home = function(){
     + app('settings','الإعدادات','style="background:none;box-shadow:none;overflow:visible"><img src="icons/settings.webp" alt="" width="64" height="64" style="display:block;width:64px;height:64px">')
     + app('calc','الحاسبة','style="background:none;box-shadow:none;overflow:visible"><img src="icons/calculator.webp" alt="" width="64" height="64" style="display:block;width:64px;height:64px">')
     + app('maps','الخرائط','style="background:none;box-shadow:none;overflow:visible"><img src="icons/maps.webp" alt="" width="64" height="64" style="display:block;width:64px;height:64px">')
-    + app('x','إكس','style="background:none;box-shadow:none;overflow:visible"><img src="icons/x.webp" alt="" width="64" height="64" style="display:block;width:64px;height:64px">')
+    + app('x','X','style="background:none;box-shadow:none;overflow:visible"><img src="icons/x.webp" alt="" width="64" height="64" style="display:block;width:64px;height:64px">')
     + app('salla','سلة','style="background:none;box-shadow:none;overflow:visible"><img src="icons/salla.webp" alt="" width="64" height="64" style="display:block;width:64px;height:64px">')
     + app('ai','ChatGPT','style="background:none;box-shadow:none;overflow:visible"><img src="icons/chatgbt.webp" alt="" width="64" height="64" style="display:block;width:64px;height:64px">')
     + app('cctv','المراقبة','style="background:linear-gradient(#4a4a4e,#1c1c1e)"><svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true"><path d="M6 13l22-6 3 9-22 6z" fill="#f2f2f7"/><circle cx="26" cy="12.5" r="2" fill="#ff453a"/><path d="M14 21l2 6h-6v6" fill="none" stroke="#f2f2f7" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>')
