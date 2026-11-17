@@ -317,6 +317,244 @@ html.mobile .kban{top:calc(env(safe-area-inset-top, 0px) + 8px)}
 .ksearch-pill{margin:auto auto 0;display:flex;align-items:center;gap:4px;height:28px;padding:0 11px;border-radius:14px;background:rgba(37,37,37,.5);-webkit-backdrop-filter:blur(40px);backdrop-filter:blur(40px);font-size:12px;line-height:16px;font-weight:500}
 .kdock{margin:16px auto 12px;width:366px;max-width:calc(100% - 24px);height:96px;border-radius:35px;background:rgba(0,0,0,.2);-webkit-backdrop-filter:blur(40px);backdrop-filter:blur(40px);display:flex;align-items:center;justify-content:space-between;padding:0 17.5px}
 .ksafari-bar{flex-shrink:0;padding:8px 16px 38px;background:rgba(22,22,22,.94);border-top:.5px solid rgba(84,84,88,.65)}
+
+/* ====== WhatsApp (iOS dark) ====== */
+.wlinks{display:flex;justify-content:space-between;padding:0 8px 2px;border-bottom:.5px solid rgba(84,84,88,.65)}
+.wrow{width:100%;min-height:72px;display:flex;align-items:center;gap:12px;padding-right:16px;text-align:right;animation:lpRise .4s cubic-bezier(.2,.9,.3,1) backwards}
+.wrow-c{flex:1;min-width:0;align-self:stretch;display:flex;flex-direction:column;justify-content:center;gap:2px;padding:8px 0 8px 16px;border-bottom:.5px solid rgba(84,84,88,.65)}
+.wrow-h,.wrow-b{display:flex;align-items:center;gap:8px}
+.wrow-n{flex:1;min-width:0;font-size:17px;line-height:22px;font-weight:600;letter-spacing:-.41px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.wrow-t{font-size:15px;line-height:20px;letter-spacing:-.24px;color:rgba(235,235,245,.6);white-space:nowrap}
+.wrow-t.on{color:#0a84ff}
+.wrow-p{flex:1;min-width:0;font-size:15px;line-height:20px;letter-spacing:-.24px;color:rgba(235,235,245,.6);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.wrow-p .wa-ticks{vertical-align:-1px;margin-left:4px}
+.wrow-u{min-width:20px;height:20px;padding:0 6px;border-radius:10px;background:#0a84ff;color:#fff;font-size:13px;line-height:20px;font-weight:600;text-align:center;flex-shrink:0}
+.wrow-arch{min-height:48px}
+.wrow-arch .wrow-c{padding:0 0 0 16px}
+.wrow-arch-ic{width:52px;display:flex;justify-content:center;flex-shrink:0}
+.wgroup{margin:0 0 4px}
+/* thread */
+.wthread-h{flex-shrink:0;display:flex;align-items:center;gap:8px;padding:2px 4px 8px 12px;background:rgba(22,22,22,.94);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);border-bottom:.5px solid rgba(84,84,88,.65)}
+.wthread-h .kback{padding:6px 4px;min-height:40px;gap:2px}
+.wthread-h .kback span{font-size:17px}
+.wthread-who{flex:1;min-width:0;display:flex;flex-direction:column}
+.wthread-n{font-size:16px;line-height:21px;font-weight:600;letter-spacing:-.32px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.wthread-h .kthread-s{font-size:12px;line-height:16px;overflow:hidden;text-overflow:ellipsis}
+.wwall{background:#0b0b0d url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22180%22 height=%22180%22 viewBox=%220 0 180 180%22%3E%3Cg fill=%22none%22 stroke=%22%23fff%22 stroke-opacity=%22.055%22 stroke-width=%221.6%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M24 30c-4-6-14-2-10 6l10 9 10-9c4-8-6-12-10-6z%22/%3E%3Cpath d=%22M70 14l4 8 9 1-6 6 1 9-8-4-8 4 1-9-6-6 9-1z%22/%3E%3Ccircle cx=%22128%22 cy=%2226%22 r=%2211%22/%3E%3Cpath d=%22M123 24h0M133 24h0M123 30c3 3 7 3 10 0%22/%3E%3Cpath d=%22M150 70h18a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5h-10l-6 5v-5h-2a5 5 0 0 1-5-5V75a5 5 0 0 1 5-5z%22/%3E%3Cpath d=%22M30 88v-18l14-3v18M30 88a4 3 0 1 1-8 0 4 3 0 1 1 8 0zM44 85a4 3 0 1 1-8 0 4 3 0 1 1 8 0z%22/%3E%3Cpath d=%22M96 60l-8 14h8l-6 14 14-18h-8l6-10z%22/%3E%3Crect x=%2266%22 y=%22112%22 width=%2226%22 height=%2218%22 rx=%224%22/%3E%3Ccircle cx=%2279%22 cy=%22121%22 r=%225%22/%3E%3Cpath d=%22M72 112l3-4h8l3 4%22/%3E%3Cpath d=%22M130 120a12 12 0 1 0 0 .1M124 120h12M130 114v12%22/%3E%3Cpath d=%22M18 140c6-8 16-8 22 0M14 150h30%22/%3E%3Cpath d=%22M150 150l10 10M160 150l-10 10%22/%3E%3Cpath d=%22M104 160c0-6 10-6 10 0s10 6 10 0%22/%3E%3Ccircle cx=%2256%22 cy=%22166%22 r=%223%22/%3E%3Ccircle cx=%22168%22 cy=%22118%22 r=%223%22/%3E%3Ccircle cx=%22104%22 cy=%2298%22 r=%222.5%22/%3E%3C/g%3E%3C/svg%3E") repeat;background-size:180px 180px}
+.wthread{padding:8px 16px 10px;display:flex;flex-direction:column;gap:2px}
+.bub.wb{max-width:78%;padding:6px 8px 6px 8px;border-radius:8px;font-size:16px;line-height:21px;letter-spacing:-.32px}
+.bub.wb .t{font-size:16px;line-height:21px}
+.bub.wb.me{background:#0b5c4c}
+.bub.wb.them{background:#262628}
+.bub.wb.tl{margin-top:6px;margin-bottom:0}
+.bub.wb.tl::after{display:none}
+.bub.wb.tl::before{content:"";position:absolute;top:0;width:8px;height:13px;background:inherit}
+.bub.wb.them.tl{border-top-right-radius:0}
+.bub.wb.them.tl::before{right:-8px;clip-path:polygon(0 0,100% 0,0 100%)}
+.bub.wb.me.tl{border-top-left-radius:0}
+.bub.wb.me.tl::before{left:-8px;clip-path:polygon(0 0,100% 0,100% 100%)}
+.wmeta{float:left;margin:6px 10px -4px 0;font-size:11px;line-height:13px;color:rgba(255,255,255,.6);white-space:nowrap;display:inline-flex;align-items:center;gap:3px;direction:rtl}
+.wmeta .wa-ticks{width:15px;height:10px}
+.wsn{margin:0 0 1px;font-size:14px;line-height:18px;font-weight:600}
+.bub.wb.media{padding:3px;background:#262628;overflow:visible}
+.bub.wb.me.media{background:#0b5c4c}
+.bub.wb.media img,.bub.wb .bimg-ph{border-radius:6px;width:220px}
+.bub.wb.media .wmeta{position:absolute;left:10px;bottom:8px;margin:0;padding:1px 6px;border-radius:8px;background:rgba(0,0,0,.4);color:#fff}
+.bub.wb .blink{margin:-2px -4px 2px;width:236px;border-radius:6px}
+.bub.wb .bvoice{width:220px}
+.wday{align-self:center;margin:10px 0 6px;padding:4px 12px;border-radius:8px;background:rgba(30,30,32,.92);font-size:12px;line-height:16px;font-weight:500;color:rgba(235,235,245,.75)}
+.wsys{align-self:center;margin:8px 20px 6px;padding:5px 12px;border-radius:8px;background:rgba(30,30,32,.92);font-size:12px;line-height:16px;color:rgba(235,235,245,.75);text-align:center}
+.wenc{color:#ffd279;max-width:300px}
+.bub.wb.typing-dots{padding:11px 13px}
+.wcompose{flex-shrink:0;display:flex;align-items:center;gap:6px;padding:6px 8px 36px;background:rgba(22,22,22,.94);border-top:.5px solid rgba(84,84,88,.65)}
+.wcompose .klink{padding:6px}
+.wfield{flex:1;min-width:0;height:34px;display:flex;align-items:center;gap:6px;padding:0 8px 0 12px;border-radius:17px;background:#1c1c1e;border:.5px solid rgba(84,84,88,.65)}
+.wfield span{flex:1}
+
+/* Dynamic Island (replaces the kit notch) */
+.status{height:54px}
+.island{top:11px;width:126px;height:37px;border-radius:19px;background:#000}
+.status > #sbTime{margin-left:calc(16.67% - 32px)}
+.status .ksb-r{margin-right:calc(16.67% - 44px)}
+.kban,.callnote{top:11px}
+/* Phone (Recents) — DetailedTableView-smallCell spacing */
+.plist{border-top:.5px solid rgba(84,84,88,.65);margin-top:4px}
+.prow{padding-right:16px}
+.prow-c{display:flex;align-items:stretch;border-bottom:.5px solid rgba(84,84,88,.65)}
+.prow-l{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px;padding:8px 0 9px 16px}
+.prow-n{font-size:17px;line-height:22px;letter-spacing:-.41px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.prow-n.miss{color:#ff453a}
+.prow-d{font-size:12px;line-height:16px;color:rgba(235,235,245,.6)}
+.prow-r{display:flex;align-items:center;gap:10px;padding-left:16px}
+.prow-t{font-size:15px;line-height:20px;letter-spacing:-.24px;color:rgba(235,235,245,.6);white-space:nowrap}
+/* TabBar — kit inactive color, 49px tabs */
+.ktabbar{height:83px}
+.ktab{height:49px;color:rgba(235,235,245,.6);gap:3px}
+.ktab svg{height:24px}
+.ktabbar-5 .ktab{white-space:nowrap}
+/* passcode keys — kit _Phone-key */
+.kkey{background:#333}
+.kkey-n{font-size:37px;line-height:41px;letter-spacing:.37px}
+.kkey-l{font-size:10px;font-weight:700;letter-spacing:2.8px;margin-top:0}
+
+/* Dynamic Island: banners and calls grow out of the island and shrink back into it */
+@keyframes lpIsleIn{0%{clip-path:inset(0 calc(50% - 63px) calc(100% - 37px) calc(50% - 63px) round 19px)}100%{clip-path:inset(0 0 0 0 round 30px)}}
+@keyframes lpIsleOut{0%{clip-path:inset(0 0 0 0 round 30px)}100%{clip-path:inset(0 calc(50% - 63px) calc(100% - 37px) calc(50% - 63px) round 19px)}}
+.kban{transform:translateX(-50%);transition:none;background:#000;border-radius:30px;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none;clip-path:inset(0 calc(50% - 63px) calc(100% - 37px) calc(50% - 63px) round 19px)}
+.kban.show{transform:translateX(-50%);animation:lpIsleIn .55s cubic-bezier(.2,1.15,.3,1) forwards}
+.kban.hide{animation:lpIsleOut .38s cubic-bezier(.5,0,.3,1) forwards}
+.kban > *{opacity:0;filter:blur(4px);transition:opacity .2s ease,filter .2s ease}
+.kban.show > *{opacity:1;filter:none;transition:opacity .3s ease .18s,filter .3s ease .18s}
+.kban.hide > *{opacity:0;filter:blur(4px);transition:opacity .12s ease,filter .12s ease}
+.callnote{animation:lpIsleIn .55s cubic-bezier(.2,1.15,.3,1) both;transition:none}
+.callnote > *{animation:lpFade .3s ease .18s backwards}
+.callnote.ring{background:#000;border-radius:30px;-webkit-backdrop-filter:none;backdrop-filter:none}
+.callnote.live{border-radius:30px}
+.callnote.out{transform:translateX(-50%);opacity:1;animation:lpIsleOut .38s cubic-bezier(.5,0,.3,1) forwards}
+.callnote.out > *{opacity:0;transition:opacity .12s ease}
+
+/* ====== glass controls (from the reference screenshots) ====== */
+.gapp{position:relative}
+.gtop{flex-shrink:0;height:52px;display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;padding:0 16px}
+.gtop-s{display:flex;justify-content:flex-start;gap:10px}
+.gtop-t{font-size:17px;line-height:22px;font-weight:600;letter-spacing:-.41px;text-align:center}
+.gtop-e{display:flex;justify-content:flex-end;gap:10px}
+.gbtn{height:44px;min-width:44px;padding:0;border-radius:22px;display:flex;align-items:center;justify-content:center;background:rgba(44,44,46,.72);-webkit-backdrop-filter:blur(20px) saturate(1.6);backdrop-filter:blur(20px) saturate(1.6);box-shadow:inset 0 .5px 0 rgba(255,255,255,.18),inset 0 0 0 .5px rgba(255,255,255,.08),0 6px 18px rgba(0,0,0,.35);color:#fff;font-size:17px;line-height:22px;letter-spacing:-.41px;transition:transform .15s,filter .15s}
+.gbtn:active{transform:scale(.94);filter:brightness(1.3)}
+.gbtn.gpill{padding:0 18px}
+.gbtn.ggreen{background:#25d366;box-shadow:inset 0 .5px 0 rgba(255,255,255,.35),0 6px 18px rgba(0,0,0,.35)}
+.gbtn.gon{background:#0a84ff}
+.gbtn-sm{height:36px;min-width:36px;border-radius:18px;background:rgba(44,44,46,.9);box-shadow:inset 0 .5px 0 rgba(255,255,255,.14)}
+.gbtn-lg{height:56px;min-width:56px;border-radius:28px;flex-shrink:0}
+.gscroll{padding-bottom:110px}
+.gsec{margin:18px 16px 8px;font-size:20px;line-height:25px;font-weight:700;letter-spacing:.38px}
+.gcount{margin:0 16px 4px;font-size:15px;line-height:20px;color:rgba(235,235,245,.6)}
+.gsearch{display:flex;align-items:center;gap:10px;height:44px;padding:0 16px;border-radius:22px;background:rgba(44,44,46,.72);color:rgba(235,235,245,.6);font-size:17px;letter-spacing:-.41px}
+.gsearch input{flex:1;min-width:0;background:none;border:0;outline:none;color:#fff;font-size:17px;padding:0}
+.gsearch input::placeholder{color:rgba(235,235,245,.6)}
+.gsearch span{flex:1}
+.gcard{border-radius:22px}
+/* floating tab bar */
+.gtabbar{position:absolute;left:0;right:0;bottom:0;z-index:3;display:flex;align-items:center;gap:10px;padding:0 16px 30px;pointer-events:none;background:linear-gradient(transparent,rgba(0,0,0,.65) 45%)}
+.gtabbar > *{pointer-events:auto}
+.gtabs{flex:1;height:62px;display:flex;align-items:stretch;padding:4px;border-radius:31px;background:rgba(44,44,46,.72);-webkit-backdrop-filter:blur(20px) saturate(1.6);backdrop-filter:blur(20px) saturate(1.6);box-shadow:inset 0 .5px 0 rgba(255,255,255,.18),inset 0 0 0 .5px rgba(255,255,255,.08),0 8px 24px rgba(0,0,0,.4)}
+.gtab{position:relative;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;border-radius:27px;color:#fff;font-size:10px;line-height:12px;font-weight:600;letter-spacing:-.1px;white-space:nowrap}
+.gtab svg{height:24px;width:auto}
+.gtab.on{background:rgba(0,0,0,.55)}
+.gtab.on.blue{color:#0a84ff}
+.gtab.on.blue span{color:#0a84ff}
+.gtab-av{display:flex;border-radius:50%;overflow:hidden}
+.gtab-badge{position:absolute;top:2px;left:50%;margin-left:6px;min-width:22px;height:22px;padding:0 6px;border-radius:11px;background:#25d366;color:#000;font-size:13px;line-height:22px;font-weight:600;text-align:center;border:2px solid rgba(44,44,46,1)}
+.gbottom{position:absolute;left:0;right:0;bottom:0;z-index:3;display:flex;align-items:center;gap:12px;padding:0 16px 30px;background:linear-gradient(transparent,rgba(0,0,0,.7) 45%)}
+.gsearch-float{flex:1;height:52px;border-radius:26px;box-shadow:inset 0 .5px 0 rgba(255,255,255,.18),0 8px 24px rgba(0,0,0,.4);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px)}
+/* WhatsApp list */
+.wchips{display:flex;gap:8px;padding:14px 16px 6px;overflow-x:auto;scrollbar-width:none}
+.wchip{flex-shrink:0;height:34px;padding:0 14px;border-radius:17px;background:#1c1c1e;border:1px solid rgba(255,255,255,.1);color:rgba(235,235,245,.85);font-size:15px;line-height:20px;font-weight:500;transition:background .2s,color .2s,border-color .2s}
+.wchip b{font-weight:500;color:rgba(235,235,245,.6);margin-right:2px}
+.wchip.on{background:#103d2b;border-color:#1f7a4d;color:#fff}
+.wchip.on b{color:#fff}
+.wchip-plus{width:34px;padding:0;font-size:22px;line-height:30px;color:#fff;text-align:center}
+.wrow{min-height:76px}
+.wrow-c{padding:10px 0 10px 16px}
+.wrow-p{white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.wrow-t.on{color:#25d366}
+.wrow-u{background:#25d366;color:#000}
+.wmute{flex-shrink:0;align-self:center}
+.wrow-arch{min-height:52px}
+.wrow-arch .wrow-n{color:rgba(235,235,245,.6);font-weight:600}
+/* Phone calls list */
+.crow{display:flex;align-items:center;gap:12px;padding-right:16px}
+.crow-av{width:44px;height:44px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(#6e6e78,#45454d);font-size:20px;font-weight:600;color:#fff}
+.crow-c{flex:1;min-width:0;min-height:68px;display:flex;align-items:center;gap:12px;padding-left:16px;border-bottom:.5px solid rgba(84,84,88,.65)}
+.crow-l{flex:1;min-width:0;display:flex;flex-direction:column;gap:1px}
+.crow-n{font-size:17px;line-height:22px;font-weight:600;letter-spacing:-.41px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.crow-n.miss{color:#ff453a}
+.crow-d{display:flex;align-items:center;gap:4px;font-size:15px;line-height:20px;color:rgba(235,235,245,.6)}
+.crow-d svg{transform:scaleX(-1)}
+.crow-t{font-size:15px;line-height:20px;color:rgba(235,235,245,.6);white-space:nowrap}
+/* Notes list */
+.ncard{margin:0 16px;border-radius:22px;background:#1c1c1e;overflow:hidden}
+.nrow{width:100%;display:flex;flex-direction:column;gap:2px;padding:14px 20px;text-align:right;border-bottom:.5px solid rgba(84,84,88,.65)}
+.nrow:last-child{border-bottom:0}
+.nrow b{font-size:17px;line-height:22px;font-weight:600;letter-spacing:-.41px}
+.nrow > span{font-size:15px;line-height:20px;color:rgba(235,235,245,.6);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nrow-t{color:rgba(235,235,245,.6);margin-left:8px}
+/* home widgets + glass dock */
+.kw-cal{width:155px;height:155px;border-radius:22px;background:#000;box-shadow:inset 0 0 0 .5px rgba(255,255,255,.12);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;direction:rtl}
+.kw-cal-h{margin:0;font-size:18px;line-height:24px;white-space:nowrap;font-weight:600;color:rgba(235,235,245,.6)}
+.kw-cal-h span{color:#ff453a}
+.kw-cal-d{margin:-4px 0 0;font-size:84px;line-height:90px;font-weight:600;color:#fff;letter-spacing:-2px}
+.kw-notes{border-radius:22px}
+.khome .grid{row-gap:20px;padding-top:20px}
+.ic{width:62px;height:62px;border-radius:14px}
+.khome .grid{grid-template-columns:repeat(4,64px);column-gap:27px}
+.app > span{text-shadow:0 1px 3px rgba(0,0,0,.4)}
+.ksearch-pill{height:30px;padding:0 13px;border-radius:15px;background:rgba(255,255,255,.12);box-shadow:inset 0 .5px 0 rgba(255,255,255,.25),inset 0 0 0 .5px rgba(255,255,255,.12)}
+.kdock{height:100px;border-radius:40px;background:rgba(255,255,255,.1);box-shadow:inset 0 .5px 0 rgba(255,255,255,.3),inset 0 0 0 .5px rgba(255,255,255,.14),0 10px 30px rgba(0,0,0,.25);-webkit-backdrop-filter:blur(30px) saturate(1.6);backdrop-filter:blur(30px) saturate(1.6);padding:0 18px}
+.badge{min-width:26px;height:26px;border-radius:13px;font-size:15px;line-height:26px;top:-8px;right:-8px}
+
+/* ====== iOS 27 UI kit (Apple Design Resources) ====== */
+/* status bar 62pt: time centred in the left half, island 125x37, levels centred in the right half */
+.status{height:62px;padding:3px 8px 0;display:flex;align-items:center;justify-content:center}
+.status > #sbTime{flex:1;width:auto;margin:0;text-align:center;font-size:17.67px;line-height:22px;font-weight:600;letter-spacing:0}
+.island{position:static;transform:none;flex-shrink:0;align-self:flex-start;margin-top:11px;width:125px;height:37px;border-radius:100px;background:#000}
+.status .ksb-r{flex:1;margin:0;display:flex;align-items:center;justify-content:center;gap:8px}
+.sb-bars{display:flex;align-items:flex-end;gap:2.333px;padding-top:1.333px}
+.sb-bars i{display:block;width:3.333px;border-radius:4px;background:#fff}
+html.mobile .status{height:calc(env(safe-area-inset-top, 0px) + 12px);padding:0}
+/* glass material (dark): translucent fill, blur, and the kit's thin side rims */
+.gbtn,.gtabs,.kdock,.ksearch-pill,.gsearch,.kl-btn{background:rgba(48,48,52,.5);-webkit-backdrop-filter:blur(14px) saturate(1.7);backdrop-filter:blur(14px) saturate(1.7);box-shadow:1.25px 0 0 -.75px rgba(255,255,255,.45),-1.25px 0 0 -.75px rgba(255,255,255,.45),0 0 0 .5px rgba(255,255,255,.16),inset 0 .5px 0 rgba(255,255,255,.22),0 8px 15px rgba(0,0,0,.22)}
+.gbtn.ggreen{background:#25d366}
+.gbtn.gon{background:#0091ff}
+/* top toolbar: 44pt glass buttons, 16pt margins */
+.gtop{height:auto;min-height:44px;padding:0 16px 10px;margin-top:0}
+.gbtn{height:44px;min-width:44px;border-radius:296px;font-weight:600}
+.gbtn.gpill{padding:0 14px}
+h1.big{margin:0 16px;font-size:34px;line-height:41px;font-weight:700;letter-spacing:.4px}
+.gcount{margin:0 16px 4px;font-size:15px;line-height:20px;font-weight:500;letter-spacing:-.23px;color:rgba(235,235,245,.6)}
+/* tab bar: 62pt pill (54pt tabs + 4pt glass inset), 25pt from the edges, separate search circle */
+.gtabbar{padding:16px 25px 25px;gap:12px}
+.gtabs{height:62px;padding:4px;border-radius:1000px}
+.gtab{height:54px;border-radius:100px;gap:1px;font-size:10px;line-height:12px;font-weight:600}
+.gtab svg{height:22px}
+.gtab.on{background:rgba(255,255,255,.12)}
+.gtab.on.blue,.gtab.on.blue span{color:#0091ff}
+.gbtn-lg{height:62px;min-width:62px;border-radius:1000px}
+/* home screen: 64pt icons, 30pt margins, 17.33pt rows, 12pt labels */
+.khome .grid{grid-template-columns:repeat(4,64px);justify-content:space-between;column-gap:0;row-gap:17.33px;padding:28px 30px 0}
+.app{gap:5px;font-size:12px;line-height:14px;font-weight:500}
+.app > span{max-width:82px;overflow:hidden;text-overflow:ellipsis;text-shadow:0 2px 25px #000}
+.kwidget{gap:5px;font-size:12px;line-height:14px;font-weight:500;text-shadow:0 2px 25px #000}
+.kw-notes,.kw-cal{width:100%;height:auto;aspect-ratio:1;border-radius:26px}
+.kw-cal-d{font-size:80px;line-height:84px}
+/* App Icon Template 27: continuous-corner squircle with a light glass edge */
+.ic{width:64px;height:64px;border-radius:22.5%;position:relative;box-shadow:inset 0 1px 0 rgba(255,255,255,.4),inset 0 0 0 .5px rgba(255,255,255,.22),inset 0 -1px 2px rgba(0,0,0,.12)}
+@supports (corner-shape: squircle){.ic{corner-shape:squircle;border-radius:30%}}
+.ksearch-pill{height:30px;padding:0 12px;gap:3px;border-radius:100px;font-size:11.5px;line-height:16px;font-weight:600}
+.kdock{width:auto;max-width:none;height:auto;margin:20px 17px 17px;padding:19px;border-radius:38px;justify-content:space-between}
+.badge{top:-12px;right:-13px;min-width:24px;height:auto;padding:2.5px 7px;border-radius:100px;background:#ff383c;font-size:16px;line-height:19px;font-weight:400}
+
+/* iOS 27 Home Screen Widget (Small): 164.67pt, 28pt corners, 18pt content padding, inner edge shading */
+.khome .grid{grid-template-columns:repeat(4,64px);justify-content:center;column-gap:28.67px}
+.kwidget{justify-self:center;width:164.67px;margin:0 -4px;gap:5px}
+.kw-notes,.kw-cal{width:164.67px;height:164.67px;aspect-ratio:auto;border-radius:28px;box-shadow:inset 0 20px 10px -20px #222,inset 0 -20px 10px -20px #222,inset 0 1px 0 rgba(255,255,255,.08),inset 0 4px .5px -4px #666,inset 0 -4px .5px -4px #666}
+.kw-top{height:54px;padding:18px 18px 0}
+.kw-title{margin:12px 18px 0}
+.kw-sub{margin:4px 18px 0}
+.kw-cal{padding:18px}
+.kw-notes,.kw-cal,.kw-notes *,.kw-cal *{text-shadow:none}
+
+/* widgets per the reference home screen: Weather + Calendar */
+.kw-wx{position:relative;width:164.67px;height:164.67px;border-radius:28px;padding:16px 18px;display:flex;flex-direction:column;align-items:flex-start;text-align:right;direction:rtl;color:#fff;background:linear-gradient(#77b0ea,#3e75bd);box-shadow:inset 0 1px 0 rgba(255,255,255,.35),inset 0 0 0 .5px rgba(255,255,255,.18)}
+.kw-wx p{margin:0}
+.kw-wx-city{display:flex;align-items:center;gap:5px;font-size:16px;line-height:20px;font-weight:600}
+.kw-wx-t{font-size:44px;line-height:48px;font-weight:300;letter-spacing:-1px}
+.kw-wx-b{margin-top:auto;display:flex;flex-direction:column;align-items:flex-start;gap:1px;font-size:13px;line-height:16px;font-weight:600}
+.kw-wx-b svg{margin-bottom:3px}
+.kw-cal{justify-content:flex-start;padding:16px 18px 10px;background:#000}
+.kw-cal-h{font-size:20px;line-height:26px;font-weight:600}
+.kw-cal-d{margin:2px 0 0;font-size:92px;line-height:96px;font-weight:600;letter-spacing:-2px}
+.kw-wx,.kw-wx *{text-shadow:none}
 </style>
 </head>
 <body>
@@ -326,8 +564,8 @@ html.mobile .kban{top:calc(env(safe-area-inset-top, 0px) + 8px)}
       <div class="layer" id="layer" hidden></div>
       <div class="status">
         <span id="sbTime"></span>
-        <div class="island" id="island"><svg aria-hidden="true" width="156" height="33" viewBox="0 0 156 33" fill="none"><g><g><path d="M1.26018 1H154.692V16C154.692 25.3888 147.129 33 137.8 33H18.1519C8.82285 33 1.26018 25.3888 1.26018 16V1Z" fill="black"/><path d="M1.49046 1L0 0C2.63371 0 1.29117 3.14875 1.29117 5.79934C1.29117 5.86656 1.2898 5.93345 1.28708 6H1.49046V1Z" fill="black"/><path d="M154.51 1L156 0C153.366 0 154.709 3.14875 154.709 5.79934C154.709 5.86656 154.71 5.93345 154.713 6H154.51V1Z" fill="black"/></g></g></svg></div>
-        <span class="ksb-r"><svg aria-hidden="true" width="77.4012" height="13" viewBox="0 0 77.4012 13" fill="none"><g><g><mask id="stroke0_0_8" fill="white"><path d="M50 4C50 1.79086 51.7909 0 54 0H71C73.2091 0 75 1.79086 75 4V9C75 11.2091 73.2091 13 71 13H54C51.7909 13 50 11.2091 50 9V4Z" fill-rule="evenodd" clip-rule="evenodd"/></mask><path opacity="0.35" d="M54 13H71C73.2091 13 75 11.2091 75 9V4C75 1.79086 73.2091 0 71 0H54C51.7909 0 50 1.79086 50 4V9C50 11.2091 51.7909 13 54 13Z" stroke-width="2.11017" stroke="white" mask="url(#stroke0_0_8)"/><path opacity="0.4" d="M76 5V9.22034C76.8491 8.86291 77.4012 8.0314 77.4012 7.11017C77.4012 6.18894 76.8491 5.35744 76 5" fill="white"/><rect x="52" y="2" width="4" height="9" rx="1.6" fill="#FF453A"/></g><path d="M34.5005 3.58753C36.967 3.58764 39.3393 4.55505 41.1269 6.28982C41.2615 6.42375 41.4766 6.42206 41.6092 6.28603L42.896 4.96045C42.9631 4.89146 43.0006 4.798 43 4.70076C42.9994 4.60353 42.9609 4.51052 42.893 4.44234C38.2011 -0.147446 30.7991 -0.147446 26.1072 4.44234C26.0392 4.51047 26.0006 4.60345 26 4.70069C25.9994 4.79792 26.0367 4.89141 26.1038 4.96045L27.391 6.28603C27.5235 6.42226 27.7388 6.42396 27.8733 6.28982C29.6612 4.55494 32.0337 3.58752 34.5005 3.58753ZM34.5359 7.58938C35.8911 7.58929 37.198 8.10346 38.2025 9.03199C38.3384 9.16376 38.5524 9.16091 38.6849 9.02555L39.9702 7.69997C40.0379 7.63044 40.0754 7.53611 40.0744 7.4381C40.0735 7.34008 40.034 7.24656 39.965 7.17844C36.9059 4.27385 32.1685 4.27385 29.1094 7.17844C29.0403 7.24656 29.0009 7.34013 29 7.43817C28.9991 7.53622 29.0368 7.63054 29.1046 7.69997L30.3895 9.02555C30.522 9.16091 30.736 9.16376 30.8719 9.03199C31.8758 8.10408 33.1816 7.58995 34.5359 7.58938ZM37.1496 10.1767C37.1515 10.275 37.1137 10.3698 37.0449 10.4386L34.8217 12.7289C34.7565 12.7962 34.6676 12.834 34.5749 12.834C34.4822 12.834 34.3933 12.7962 34.3282 12.7289L32.1045 10.4386C32.0358 10.3697 31.998 10.2749 32.0001 10.1766C32.0021 10.0783 32.0438 9.98527 32.1153 9.91938C33.5351 8.69354 35.6147 8.69354 37.0345 9.91938C37.106 9.98532 37.1476 10.0784 37.1496 10.1767Z" fill-rule="evenodd" clip-rule="evenodd" fill="white"/><g><path d="M10 4C10 3.44772 10.4477 3 11 3H12C12.5523 3 13 3.44772 13 4V12C13 12.5523 12.5523 13 12 13H11C10.4477 13 10 12.5523 10 12V4Z" fill="white"/><path d="M15 2C15 1.44772 15.4477 1 16 1H17C17.5523 1 18 1.44772 18 2V12C18 12.5523 17.5523 13 17 13H16C15.4477 13 15 12.5523 15 12V2Z" fill="white"/><path d="M5 7.5C5 6.94772 5.44772 6.5 6 6.5H7C7.55228 6.5 8 6.94772 8 7.5V12C8 12.5523 7.55228 13 7 13H6C5.44772 13 5 12.5523 5 12V7.5Z" fill="white"/><path d="M0 10C0 9.44772 0.447715 9 1 9H2C2.55228 9 3 9.44772 3 10V12C3 12.5523 2.55228 13 2 13H1C0.447715 13 0 12.5523 0 12V10Z" fill="white"/></g></g></svg></span>
+        <div class="island" id="island"></div>
+        <span class="ksb-r"><span class="sb-bars"><i style="height:6.333px"></i><i style="height:8.67px"></i><i style="height:11px"></i><i style="height:13.667px"></i></span><svg aria-hidden="true" width="19.333" height="14.3333" viewBox="0 0 19.333 14.3333" fill="none"><path d="M0.415933 5.54283C0.902185 6.04412 1.66017 5.95818 2.27513 5.41393C4.30595 3.58064 6.83731 2.63535 9.66901 2.63535C12.5007 2.63535 15.0464 3.60928 17.0629 5.41393C17.6636 5.97251 18.4215 6.0298 18.9221 5.54283C19.4226 5.02722 19.4942 4.2538 18.9793 3.70954C16.8341 1.51819 13.3302 0 9.66901 0C6.00783 0 2.48965 1.53251 0.358727 3.72387C-0.156127 4.2538 -0.0989213 5.02722 0.415933 5.55715V5.54283ZM3.94841 9.13779C4.50617 9.68205 5.22124 9.62476 5.85051 9.10915C6.88022 8.29276 8.25316 7.73418 9.66901 7.7485C11.0706 7.7485 12.4435 8.29276 13.4875 9.12347C14.1168 9.63908 14.8605 9.66773 15.4039 9.12347C15.9331 8.57921 16.0189 7.7485 15.4611 7.23289C14.0739 5.98683 11.9859 5.11315 9.68332 5.11315C7.38077 5.11315 5.27845 5.98683 3.9055 7.23289C3.41925 7.69121 3.31914 8.47896 3.96271 9.13779H3.94841ZM8.72511 13.8929C9.34008 14.4801 9.98365 14.4801 10.5986 13.8929L11.757 12.7757C12.372 12.1742 12.5007 11.4151 11.7999 10.8995C11.2136 10.4841 10.4699 10.212 9.66901 10.212C8.86813 10.212 8.11015 10.4841 7.53809 10.9138C6.83731 11.4151 6.98033 12.1885 7.59529 12.7757L8.73942 13.8929H8.72511Z" fill-rule="evenodd" clip-rule="evenodd" fill="white"/></svg><svg aria-hidden="true" width="29.333" height="13.6667" viewBox="0 0 29.333 13.6667" fill="none"><defs><clipPath id="kbat"><path d="M0 6.4C0 4.15979 0 3.03969 0.435974 2.18404C0.819467 1.43139 1.43139 0.819467 2.18404 0.435974C3.03969 0 4.15979 0 6.4 0H19.933C22.1732 0 23.2933 0 24.149 0.435974C24.9016 0.819467 25.5135 1.43139 25.897 2.18404C26.333 3.03969 26.333 4.15979 26.333 6.4V7.26666C26.333 9.50687 26.333 10.627 25.897 11.4826C25.5135 12.2353 24.9016 12.8472 24.149 13.2307C23.2933 13.6667 22.1732 13.6667 19.933 13.6667H6.4C4.15979 13.6667 3.03969 13.6667 2.18404 13.2307C1.43139 12.8472 0.819467 12.2353 0.435974 11.4826C0 10.627 0 9.50687 0 7.26666V6.4Z"/></clipPath></defs><path d="M0 6.4C0 4.15979 0 3.03969 0.435974 2.18404C0.819467 1.43139 1.43139 0.819467 2.18404 0.435974C3.03969 0 4.15979 0 6.4 0H19.933C22.1732 0 23.2933 0 24.149 0.435974C24.9016 0.819467 25.5135 1.43139 25.897 2.18404C26.333 3.03969 26.333 4.15979 26.333 6.4V7.26666C26.333 9.50687 26.333 10.627 25.897 11.4826C25.5135 12.2353 24.9016 12.8472 24.149 13.2307C23.2933 13.6667 22.1732 13.6667 19.933 13.6667H6.4C4.15979 13.6667 3.03969 13.6667 2.18404 13.2307C1.43139 12.8472 0.819467 12.2353 0.435974 11.4826C0 10.627 0 9.50687 0 7.26666V6.4Z" fill="white" fill-opacity=".32"/><rect width="5.2" height="13.6667" fill="#FF383C" clip-path="url(#kbat)"/><path d="M27.333 4.33333V9.33333C27.9345 9.19583 29.333 8.08333 29.333 6.83333C29.333 5.58333 27.9345 4.47083 27.333 4.33333Z" fill="white" fill-opacity=".32"/></svg></span>
       </div>
       <main class="view" id="view" aria-live="polite"></main>
       <button class="homebar" id="homebar" aria-label="الشاشة الرئيسية" data-a="home"><span></span></button>
@@ -513,6 +751,7 @@ var PUSHES = [
 var SONGS = [['مقادير','طلال مداح','linear-gradient(135deg,#7a2a3a,#2a1020)'],['المسافر','راشد الماجد','linear-gradient(135deg,#2a4a7a,#0e1a30)'],['يا سعود العلي','عبدالعزيز العليوي','linear-gradient(135deg,#6a5a2a,#221c0c)']];
 
 var KIT = {
+  voicemail: '<svg aria-hidden="true" width="34" height="16" viewBox="0 0 34 16"><path d="M8 1.5a6.5 6.5 0 0 1 5.3 10.3h7.4A6.5 6.5 0 1 1 26 14.5H8A6.5 6.5 0 0 1 8 1.5zm0 2.2a4.3 4.3 0 1 0 0 8.6 4.3 4.3 0 0 0 0-8.6zm18 0a4.3 4.3 0 1 0 0 8.6 4.3 4.3 0 0 0 0-8.6z" fill="currentColor" fill-rule="evenodd"/></svg>',
   statusRight: '<svg aria-hidden="true" width="77.4012" height="13" viewBox="0 0 77.4012 13" fill="none"><g><g><mask id="stroke0_0_8" fill="white"><path d="M50 4C50 1.79086 51.7909 0 54 0H71C73.2091 0 75 1.79086 75 4V9C75 11.2091 73.2091 13 71 13H54C51.7909 13 50 11.2091 50 9V4Z" fill-rule="evenodd" clip-rule="evenodd"/></mask><path opacity="0.35" d="M54 13H71C73.2091 13 75 11.2091 75 9V4C75 1.79086 73.2091 0 71 0H54C51.7909 0 50 1.79086 50 4V9C50 11.2091 51.7909 13 54 13Z" stroke-width="2.11017" stroke="white" mask="url(#stroke0_0_8)"/><path opacity="0.4" d="M76 5V9.22034C76.8491 8.86291 77.4012 8.0314 77.4012 7.11017C77.4012 6.18894 76.8491 5.35744 76 5" fill="white"/><rect x="52" y="2" width="4" height="9" rx="1.6" fill="#FF453A"/></g><path d="M34.5005 3.58753C36.967 3.58764 39.3393 4.55505 41.1269 6.28982C41.2615 6.42375 41.4766 6.42206 41.6092 6.28603L42.896 4.96045C42.9631 4.89146 43.0006 4.798 43 4.70076C42.9994 4.60353 42.9609 4.51052 42.893 4.44234C38.2011 -0.147446 30.7991 -0.147446 26.1072 4.44234C26.0392 4.51047 26.0006 4.60345 26 4.70069C25.9994 4.79792 26.0367 4.89141 26.1038 4.96045L27.391 6.28603C27.5235 6.42226 27.7388 6.42396 27.8733 6.28982C29.6612 4.55494 32.0337 3.58752 34.5005 3.58753ZM34.5359 7.58938C35.8911 7.58929 37.198 8.10346 38.2025 9.03199C38.3384 9.16376 38.5524 9.16091 38.6849 9.02555L39.9702 7.69997C40.0379 7.63044 40.0754 7.53611 40.0744 7.4381C40.0735 7.34008 40.034 7.24656 39.965 7.17844C36.9059 4.27385 32.1685 4.27385 29.1094 7.17844C29.0403 7.24656 29.0009 7.34013 29 7.43817C28.9991 7.53622 29.0368 7.63054 29.1046 7.69997L30.3895 9.02555C30.522 9.16091 30.736 9.16376 30.8719 9.03199C31.8758 8.10408 33.1816 7.58995 34.5359 7.58938ZM37.1496 10.1767C37.1515 10.275 37.1137 10.3698 37.0449 10.4386L34.8217 12.7289C34.7565 12.7962 34.6676 12.834 34.5749 12.834C34.4822 12.834 34.3933 12.7962 34.3282 12.7289L32.1045 10.4386C32.0358 10.3697 31.998 10.2749 32.0001 10.1766C32.0021 10.0783 32.0438 9.98527 32.1153 9.91938C33.5351 8.69354 35.6147 8.69354 37.0345 9.91938C37.106 9.98532 37.1476 10.0784 37.1496 10.1767Z" fill-rule="evenodd" clip-rule="evenodd" fill="white"/><g><path d="M10 4C10 3.44772 10.4477 3 11 3H12C12.5523 3 13 3.44772 13 4V12C13 12.5523 12.5523 13 12 13H11C10.4477 13 10 12.5523 10 12V4Z" fill="white"/><path d="M15 2C15 1.44772 15.4477 1 16 1H17C17.5523 1 18 1.44772 18 2V12C18 12.5523 17.5523 13 17 13H16C15.4477 13 15 12.5523 15 12V2Z" fill="white"/><path d="M5 7.5C5 6.94772 5.44772 6.5 6 6.5H7C7.55228 6.5 8 6.94772 8 7.5V12C8 12.5523 7.55228 13 7 13H6C5.44772 13 5 12.5523 5 12V7.5Z" fill="white"/><path d="M0 10C0 9.44772 0.447715 9 1 9H2C2.55228 9 3 9.44772 3 10V12C3 12.5523 2.55228 13 2 13H1C0.447715 13 0 12.5523 0 12V10Z" fill="white"/></g></g></svg>',
   notch: '<svg aria-hidden="true" width="156" height="33" viewBox="0 0 156 33" fill="none"><g><g><path d="M1.26018 1H154.692V16C154.692 25.3888 147.129 33 137.8 33H18.1519C8.82285 33 1.26018 25.3888 1.26018 16V1Z" fill="black"/><path d="M1.49046 1L0 0C2.63371 0 1.29117 3.14875 1.29117 5.79934C1.29117 5.86656 1.2898 5.93345 1.28708 6H1.49046V1Z" fill="black"/><path d="M154.51 1L156 0C153.366 0 154.709 3.14875 154.709 5.79934C154.709 5.86656 154.71 5.93345 154.713 6H154.51V1Z" fill="black"/></g></g></svg>',
   lock: '<svg aria-hidden="true" width="12" height="17.524" viewBox="0 0 12 17.524" fill="none"><path d="M1.72455 17.524H10.2754C11.4341 17.524 12 16.9491 12 15.6916V9.0988C12 7.96707 11.5329 7.38323 10.5719 7.28443V5.02096C10.5719 1.63473 8.35329 0 6 0C3.64671 0 1.42814 1.63473 1.42814 5.02096V7.32934C0.547904 7.46407 0 8.03892 0 9.0988V15.6916C0 16.9491 0.565868 17.524 1.72455 17.524ZM2.87425 4.83234C2.87425 2.57784 4.32036 1.38323 6 1.38323C7.67964 1.38323 9.12575 2.57784 9.12575 4.83234V7.27545L2.87425 7.28443V4.83234Z" fill="white"/></svg>',
@@ -533,9 +772,9 @@ var KIT = {
   info: '<svg aria-hidden="true" width="22" height="22" viewBox="0 0 22 22" style="flex-shrink:0"><circle cx="11" cy="11" r="10" fill="none" stroke="#0A84FF" stroke-width="1.6"/><circle cx="11" cy="6.6" r="1.3" fill="#0A84FF"/><rect x="10" y="9.2" width="2" height="7.2" rx="1" fill="#0A84FF"/></svg>',
   more: '<svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10.5" fill="none" stroke="#0A84FF" stroke-width="1.6"/><circle cx="7.2" cy="12" r="1.5" fill="#0A84FF"/><circle cx="12" cy="12" r="1.5" fill="#0A84FF"/><circle cx="16.8" cy="12" r="1.5" fill="#0A84FF"/></svg>',
   archive: '<svg aria-hidden="true" width="22" height="20" viewBox="0 0 22 20"><rect x="1" y="1" width="20" height="5.5" rx="1.5" fill="#0A84FF"/><path d="M2.5 8h17v9a2 2 0 0 1-2 2h-13a2 2 0 0 1-2-2z" fill="#0A84FF"/><rect x="8" y="10.5" width="6" height="1.8" rx=".9" fill="#000"/></svg>',
-  star: '<svg aria-hidden="true" width="26" height="25" viewBox="0 0 26 25"><path d="M13 1.5l3.4 7 7.6 1-5.5 5.3 1.3 7.6L13 18.8l-6.8 3.6 1.3-7.6L2 9.5l7.6-1z" fill="currentColor"/></svg>',
-  clock: '<svg aria-hidden="true" width="25" height="25" viewBox="0 0 25 25"><circle cx="12.5" cy="12.5" r="11.5" fill="currentColor"/><path d="M12.5 6v7l4.5 2.6" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
-  keypad: '<svg aria-hidden="true" width="22" height="26" viewBox="0 0 22 26"><g fill="currentColor"><circle cx="3.5" cy="3.5" r="3"/><circle cx="11" cy="3.5" r="3"/><circle cx="18.5" cy="3.5" r="3"/><circle cx="3.5" cy="10" r="3"/><circle cx="11" cy="10" r="3"/><circle cx="18.5" cy="10" r="3"/><circle cx="3.5" cy="16.5" r="3"/><circle cx="11" cy="16.5" r="3"/><circle cx="18.5" cy="16.5" r="3"/><circle cx="11" cy="23" r="3"/></g></svg>',
+  star: '<svg aria-hidden="true" width="27" height="26" viewBox="0 0 27 26"><path d="M13.5 1.2c.5 0 .9.3 1.1.8l3 6.4 7 .9c1 .1 1.4 1.4.6 2.1l-5.1 4.9 1.3 6.9c.2 1-.9 1.8-1.8 1.3l-6.1-3.4-6.1 3.4c-.9.5-2-.3-1.8-1.3l1.3-6.9-5.1-4.9c-.8-.7-.4-2 .6-2.1l7-.9 3-6.4c.2-.5.6-.8 1.1-.8z" fill="currentColor"/></svg>',
+  clock: '<svg aria-hidden="true" width="25" height="25" viewBox="0 0 25 25"><path d="M12.5 24.5c6.6 0 12-5.4 12-12S19.1.5 12.5.5.5 5.9.5 12.5s5.4 12 12 12zM6.6 14.1a1 1 0 0 1 0-2h4.9V5.3a1 1 0 0 1 2 0v7.8a1 1 0 0 1-1 1z" fill="currentColor" fill-rule="evenodd"/></svg>',
+  keypad: '<svg aria-hidden="true" width="23" height="23" viewBox="0 0 23 23" fill="none"><g><path d="M7 3.5C7 5.433 5.433 7 3.5 7C1.567 7 0 5.433 0 3.5C0 1.567 1.567 0 3.5 0C5.433 0 7 1.567 7 3.5Z" fill="currentColor"/><path d="M7 11.5C7 13.433 5.433 15 3.5 15C1.567 15 0 13.433 0 11.5C0 9.567 1.567 8 3.5 8C5.433 8 7 9.567 7 11.5Z" fill="currentColor"/><path d="M7 19.5C7 21.433 5.433 23 3.5 23C1.567 23 0 21.433 0 19.5C0 17.567 1.567 16 3.5 16C5.433 16 7 17.567 7 19.5Z" fill="currentColor"/><path d="M15 3.5C15 5.433 13.433 7 11.5 7C9.567 7 8 5.433 8 3.5C8 1.567 9.567 0 11.5 0C13.433 0 15 1.567 15 3.5Z" fill="currentColor"/><path d="M15 11.5C15 13.433 13.433 15 11.5 15C9.567 15 8 13.433 8 11.5C8 9.567 9.567 8 11.5 8C13.433 8 15 9.567 15 11.5Z" fill="currentColor"/><path d="M15 19.5C15 21.433 13.433 23 11.5 23C9.567 23 8 21.433 8 19.5C8 17.567 9.567 16 11.5 16C13.433 16 15 17.567 15 19.5Z" fill="currentColor"/><path d="M23 3.5C23 5.433 21.433 7 19.5 7C17.567 7 16 5.433 16 3.5C16 1.567 17.567 0 19.5 0C21.433 0 23 1.567 23 3.5Z" fill="currentColor"/><path d="M23 11.5C23 13.433 21.433 15 19.5 15C17.567 15 16 13.433 16 11.5C16 9.567 17.567 8 19.5 8C21.433 8 23 9.567 23 11.5Z" fill="currentColor"/><path d="M23 19.5C23 21.433 21.433 23 19.5 23C17.567 23 16 21.433 16 19.5C16 17.567 17.567 16 19.5 16C21.433 16 23 17.567 23 19.5Z" fill="currentColor"/></g></svg>',
   folderFill: '<svg aria-hidden="true" width="28" height="22" viewBox="0 0 28 22"><path d="M3 1h7.5l2.5 3H25a2.5 2.5 0 0 1 2.5 2.5V19A2.5 2.5 0 0 1 25 21.5H3A2.5 2.5 0 0 1 .5 19V3.5A2.5 2.5 0 0 1 3 1z" fill="currentColor"/></svg>',
   batteryLow: '<svg aria-hidden="true" width="24" height="13" viewBox="0 0 25 13"><rect x=".5" y=".5" width="21" height="12" rx="3.5" fill="none" stroke="rgba(255,255,255,.5)"/><rect x="2" y="2" width="3.4" height="9" rx="1.6" fill="#FF453A"/><path d="M23 4.5v4a2 2 0 0 0 0-4z" fill="rgba(255,255,255,.5)"/></svg>',
   waMini: '<svg aria-hidden="true" width="18" height="18" viewBox="0 0 18 18"><rect width="18" height="18" rx="4.5" fill="#25D366"/><path d="M9 3.6a5.4 5.4 0 0 0-4.6 8.2l-.7 2.6 2.7-.7A5.4 5.4 0 1 0 9 3.6z" fill="none" stroke="#fff" stroke-width="1.2" stroke-linejoin="round"/></svg>'
@@ -628,79 +867,82 @@ V.home = function(){
   var i = 0, d = function(){ return S.fromLock ? 'animation:lpIconIn .5s cubic-bezier(.2,.9,.25,1) backwards;animation-delay:'+(28*i++)+'ms;' : ''; };
   var app = function(s, label, icon){ return '<button class="app press" data-a="open" data-s="'+s+'" style="'+d()+'"><div class="ic" '+icon+'</div><span>'+label+'</span></button>'; };
   var dock = function(s, label, bg, svg, badge){ return '<button class="press" data-a="open" data-s="'+s+'" aria-label="'+label+'" style="position:relative;'+d()+'"><div class="ic" style="'+bg+'">'+svg+'</div>'+(badge||'')+'</button>'; };
-  var u = unread();
-  var notesWidget = '<button class="kwidget press" data-a="open" data-s="notes" style="'+d()+'">'
-    + '<div class="kw-notes"><div class="kw-top">'+KIT.folder+'</div><div class="kw-sep"></div>'
-    + '<p class="kw-title">مهام اليوم</p><p class="kw-sub">'+AR(NOTES.length)+' ملاحظات</p></div>'
-    + '<span>الملاحظات</span></button>';
+  var u = unread(), now = new Date();
+  var wd = ['الأحد','الاثنين','الثلاثاء','الأربعاء','الخميس','الجمعة','السبت'][now.getDay()];
+  var mo = ['يناير','فبراير','مارس','أبريل','مايو','يونيو','يوليو','أغسطس','سبتمبر','أكتوبر','نوفمبر','ديسمبر'][now.getMonth()];
+  var weatherWidget = '<button class="kwidget press" data-a="open" data-s="soon" style="'+d()+'">'
+    + '<div class="kw-wx"><p class="kw-wx-city">الرياض <svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M11 1L1 5.4l4.6 1 1 4.6z" fill="#fff"/></svg></p>'
+    + '<p class="kw-wx-t">٢٧°</p>'
+    + '<div class="kw-wx-b"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="3.4" fill="#ffd60a"/><g stroke="#ffd60a" stroke-width="1.4" stroke-linecap="round"><path d="M8 1v1.6M8 13.4V15M1 8h1.6M13.4 8H15M3 3l1.1 1.1M11.9 11.9L13 13M3 13l1.1-1.1M11.9 4.1L13 3"/></g></svg>'
+    + '<p>مشمس غالبًا</p><p>ع:٢٨° د:١٦°</p></div></div>'
+    + '<span>الطقس</span></button>';
+  var calWidget = '<button class="kwidget press" data-a="open" data-s="cal" style="'+d()+'">'
+    + '<div class="kw-cal"><p class="kw-cal-h"><span>'+wd+'</span> '+mo+'</p><p class="kw-cal-d">'+AR(now.getDate())+'</p></div>'
+    + '<span>التقويم</span></button>';
   return '<div class="khome">'
-    + '<div class="grid">' + notesWidget
-    + app('cal','التقويم','style="background:#fff;flex-direction:column;line-height:1"><span style="font-size:9px;color:#ff3b30;font-weight:600">اليوم</span><span style="font-size:30px;color:#000;font-weight:300;margin-top:3px">'+AR(new Date().getDate())+'</span>')
-    + app('soon','الساعة','style="background:#000"><svg width="50" height="50" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="21" fill="#fff"/><path d="M22 22l-8 3.5" stroke="#000" stroke-width="2.4" stroke-linecap="round"/><path d="M22 22l6.5-9" stroke="#000" stroke-width="1.8" stroke-linecap="round"/><circle cx="22" cy="22" r="1.6" fill="#ff9500"/></svg>')
-    + app('notes','الملاحظات','style="background:#fff;flex-direction:column;align-items:stretch;justify-content:flex-start"><div style="height:17px;background:linear-gradient(#ffd422,#f2c800)"></div><div style="flex:1;background:repeating-linear-gradient(#fff 0 8px,#d9d9de 8px 9px)"></div>')
-    + app('photos','الصور','style="background:#fff"><svg width="42" height="42" viewBox="0 0 38 38" aria-hidden="true"><circle cx="19" cy="10" r="6" fill="#ff9f0a" opacity=".9"/><circle cx="27.5" cy="15" r="6" fill="#ffd60a" opacity=".85"/><circle cx="27.5" cy="24" r="6" fill="#30d158" opacity=".85"/><circle cx="19" cy="28" r="6" fill="#64d2ff" opacity=".85"/><circle cx="10.5" cy="24" r="6" fill="#5e5ce6" opacity=".85"/><circle cx="10.5" cy="15" r="6" fill="#ff375f" opacity=".85"/></svg>')
-    + app('camera','الكاميرا','style="background:linear-gradient(#e8e8ec,#a9a9b0)"><svg width="40" height="31" viewBox="0 0 36 28" aria-hidden="true"><rect x="1" y="4" width="34" height="23" rx="5" fill="#2c2c2e"/><circle cx="18" cy="15.5" r="7.5" fill="#d8d8dc"/><circle cx="18" cy="15.5" r="5" fill="#2c2c2e"/></svg>')
-    + app('files','الملفات','style="background:#fff"><svg width="42" height="33" viewBox="0 0 38 30" aria-hidden="true"><path d="M1 4a3 3 0 0 1 3-3h9l3 3.5h18a3 3 0 0 1 3 3V26a3 3 0 0 1-3 3H4a3 3 0 0 1-3-3z" fill="#0a84ff"/><path d="M1 10h36v16a3 3 0 0 1-3 3H4a3 3 0 0 1-3-3z" fill="#40a0ff"/></svg>')
-    + app('soon','الطقس','style="background:linear-gradient(#3aa0ff,#1663d6)"><svg width="42" height="33" viewBox="0 0 38 30" aria-hidden="true"><circle cx="25" cy="10" r="7" fill="#ffd60a"/><path d="M10 27a7 7 0 0 1-1-13.9A9 9 0 0 1 26.5 15 6 6 0 0 1 26 27z" fill="#fff"/></svg>')
-    + app('settings','الإعدادات','style="background:linear-gradient(#b8b8be,#7c7c84)"><svg width="46" height="46" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="17" fill="none" stroke="#4a4a50" stroke-width="3" stroke-dasharray="2.2 1.6"/><circle cx="20" cy="20" r="13" fill="#d8d8dc"/><circle cx="20" cy="20" r="3" fill="#4a4a50"/></svg>')
-    + app('soon','الخرائط','style="background:#c9ecb4"><svg width="60" height="60" viewBox="0 0 54 54" aria-hidden="true"><path d="M0 40L54 18v10L0 50z" fill="#fff3c4"/><path d="M22 0h8l-6 54h-8z" fill="#fff"/><path d="M36 14a5 5 0 0 1 10 0c0 4-5 9-5 9s-5-5-5-9z" fill="#ff3b30"/></svg>')
-    + app('soon','الحاسبة','style="background:#1c1c1e"><svg width="40" height="40" viewBox="0 0 36 36" aria-hidden="true"><g fill="#8e8e93"><circle cx="5" cy="5" r="3.2"/><circle cx="13.5" cy="5" r="3.2"/><circle cx="22" cy="5" r="3.2"/><circle cx="5" cy="13.5" r="3.2"/><circle cx="13.5" cy="13.5" r="3.2"/><circle cx="22" cy="13.5" r="3.2"/><circle cx="5" cy="22" r="3.2"/><circle cx="13.5" cy="22" r="3.2"/><circle cx="22" cy="22" r="3.2"/></g><g fill="#ff9f0a"><circle cx="31" cy="5" r="3.2"/><circle cx="31" cy="13.5" r="3.2"/><circle cx="31" cy="22" r="3.2"/></g></svg>')
+    + '<div class="grid">' + weatherWidget + calWidget
+    + app('soon','الساعة','style="background:none;box-shadow:none;overflow:visible"><img src="icons/clock.webp" alt="" width="64" height="64" style="display:block;width:64px;height:64px">')
+    + app('cal','التقويم','style="background:none;box-shadow:none;overflow:visible"><img src="icons/calendar.webp" alt="" width="64" height="64" style="display:block;width:64px;height:64px">')
+    + app('photos','الصور','style="background:none;box-shadow:none;overflow:visible"><img src="icons/photos.webp" alt="" width="64" height="64" style="display:block;width:64px;height:64px">')
+    + app('camera','الكاميرا','style="background:none;box-shadow:none;overflow:visible"><img src="icons/camera.webp" alt="" width="64" height="64" style="display:block;width:64px;height:64px">')
+    + app('notes','الملاحظات','style="background:none;box-shadow:none;overflow:visible"><img src="icons/notes.webp" alt="" width="64" height="64" style="display:block;width:64px;height:64px">')
+    + app('files','الملفات','style="background:none;box-shadow:none;overflow:visible"><img src="icons/files.webp" alt="" width="64" height="64" style="display:block;width:64px;height:64px">')
+    + app('soon','الطقس','style="background:none;box-shadow:none;overflow:visible"><img src="icons/weather.webp" alt="" width="64" height="64" style="display:block;width:64px;height:64px">')
+    + app('settings','الإعدادات','style="background:none;box-shadow:none;overflow:visible"><img src="icons/settings.webp" alt="" width="64" height="64" style="display:block;width:64px;height:64px">')
+    + app('soon','الحاسبة','style="background:none;box-shadow:none;overflow:visible"><img src="icons/calculator.webp" alt="" width="64" height="64" style="display:block;width:64px;height:64px">')
+    + app('soon','الخرائط','style="background:none;box-shadow:none;overflow:visible"><img src="icons/maps.webp" alt="" width="64" height="64" style="display:block;width:64px;height:64px">')
     + '</div>'
     + '<div class="ksearch-pill">'+KIT.searchSmall+'<span>بحث</span></div>'
     + '<div class="kdock">'
-    + dock('phone','الهاتف','background:linear-gradient(#5df57a,#22c24a)','<svg width="32" height="32" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z" fill="#fff"/></svg>','<span class="badge">٣</span>')
-    + dock('safari','Safari','background:linear-gradient(#ffffff,#e9e9ee)',SAFARI_SVG)
-    + dock('wa','واتساب','background:linear-gradient(#5df57a,#22c24a)','<svg width="36" height="36" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3z" fill="none" stroke="#fff" stroke-width="2.2" stroke-linejoin="round"/><path d="M11.5 10.5c.4-.4 1.2-.4 1.5.1l1.2 2.4c.2.4 0 .9-.3 1.2l-.7.6a8 8 0 0 0 4 4l.6-.7c.3-.3.8-.5 1.2-.3l2.4 1.2c.5.3.5 1.1.1 1.5-1 1-2.6 1.3-4 .7a12 12 0 0 1-6.7-6.7c-.6-1.4-.3-3 .7-4z" fill="#fff"/></svg>', u ? '<span class="badge" style="animation:lpBadge .35s cubic-bezier(.2,.9,.3,1.3) .35s backwards">'+AR(u)+'</span>' : '')
-    + dock('music','الموسيقى','background:linear-gradient(#ff6482,#fa2d48)','<svg width="30" height="32" viewBox="0 0 26 28" aria-hidden="true"><path d="M9 21V5l15-3v16" fill="none" stroke="#fff" stroke-width="2.4" stroke-linejoin="round"/><ellipse cx="5.5" cy="21.5" rx="4.5" ry="3.8" fill="#fff"/><ellipse cx="20.5" cy="18.5" rx="4.5" ry="3.8" fill="#fff"/></svg>')
+    + dock('phone','الهاتف','background:none;box-shadow:none;overflow:visible','<img src="icons/phone.webp" alt="" width="64" height="64" style="display:block;width:64px;height:64px">','<span class="badge">٣</span>')
+    + dock('safari','Safari','background:none;box-shadow:none;overflow:visible','<img src="icons/safari.webp" alt="" width="64" height="64" style="display:block;width:64px;height:64px">')
+    + dock('music','الموسيقى','background:none;box-shadow:none;overflow:visible','<img src="icons/music.webp" alt="" width="64" height="64" style="display:block;width:64px;height:64px">')
+    + dock('wa','واتساب','background:none;box-shadow:none;overflow:visible','<img src="icons/whatsapp.webp" alt="" width="64" height="64" style="display:block;width:64px;height:64px">', u ? '<span class="badge" style="animation:lpBadge .35s cubic-bezier(.2,.9,.3,1.3) .35s backwards">'+AR(u)+'</span>' : '')
     + '</div></div>';
 };
 
+var WA_TICKS = '<svg class="wa-ticks" width="16" height="11" viewBox="0 0 16 11" aria-label="مقروءة"><path d="M1 6.2l2.6 2.6L9.4 2.4M6.2 8.8l.9.9L13.4 2.4" fill="none" stroke="#53bdeb" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+var BELL_OFF = '<svg class="wmute" width="18" height="18" viewBox="0 0 20 20" aria-label="مكتومة"><path d="M10 2.5a5 5 0 0 0-5 5v3.2L3.5 13.5h13L15 10.7V7.5a5 5 0 0 0-5-5zM8 15.5a2 2 0 0 0 4 0" fill="rgba(235,235,245,.35)"/><path d="M3 3l14 14" stroke="#000" stroke-width="3.4"/><path d="M3 3l14 14" stroke="rgba(235,235,245,.35)" stroke-width="1.5" stroke-linecap="round"/></svg>';
+function lastReal(c){ for (var i = c.msgs.length - 1; i >= 0; i--) { var m = c.msgs[i]; if (!m.day && !m.banner && !m.sys) return m; } return null; }
 function chatRow(c, i){
-  var un = S.read[c.id] ? 0 : c.unread;
-  return '<button class="trow tap" data-a="chat" data-id="'+c.id+'" style="animation-delay:'+(60+i*40)+'ms">'
-    + '<span class="udot'+(un?' on':'')+'" aria-label="'+(un?'غير مقروءة':'')+'"></span>' + avatar(c,45)
-    + '<span class="trc"><span class="trh"><span class="trn">'+esc(c.name)+'</span><span class="trt">'+c.when+'</span>'+KIT.chevFwd+'</span>'
-    + '<span class="trp">'+esc(preview(c))+'</span></span></button>';
+  var un = S.read[c.id] ? 0 : c.unread, lm = lastReal(c);
+  var muted = c.group && !un;
+  return '<button class="wrow tap" data-a="chat" data-id="'+c.id+'" style="animation-delay:'+(60+i*40)+'ms">' + avatar(c,52)
+    + '<span class="wrow-c"><span class="wrow-h"><span class="wrow-n">'+esc(c.name)+'</span><span class="wrow-t'+(un?' on':'')+'">'+c.when+'</span></span>'
+    + '<span class="wrow-b"><span class="wrow-p">'+(lm && lm.mine ? WA_TICKS : '')+esc(preview(c))+'</span>'+(un ? '<span class="wrow-u">'+AR(un)+'</span>' : (muted ? BELL_OFF : ''))+'</span></span></button>';
 }
 
 function waListHtml(){
-  var q = (S.waQuery || '').trim();
+  var q = (S.waQuery || '').trim(), f = S.waFilter || 'all';
   var list = CHATS.filter(function(c){ return !c.archived; }).filter(function(c){
     var un = S.read[c.id] ? 0 : c.unread;
-    if (S.waFilter === 'unread' && !un) return false;
-    if (S.waFilter === 'groups' && !c.group) return false;
-    if (q && (c.name + ' ' + preview(c)).indexOf(q) === -1) return false;
-    return true;
+    if (f === 'unread' && !un) return false;
+    if (f === 'fav' && !c.pinned) return false;
+    if (f === 'groups' && !c.group) return false;
+    return !q || (c.name + ' ' + preview(c)).indexOf(q) !== -1;
   });
-  var showPins = S.waFilter === 'all' && !q;
-  var pinned = list.filter(function(c){ return c.pinned; });
-  var rest = showPins ? list.filter(function(c){ return !c.pinned; }) : list;
-  var pins = showPins && pinned.length ? '<div class="kpins">'+pinned.map(function(c){
-    var un = S.read[c.id] ? 0 : c.unread;
-    return '<button class="kpin press" data-a="chat" data-id="'+c.id+'">'+avatar(c,86)+(un?'<span class="udot on"></span>':'')+'<span>'+esc(c.name)+'</span></button>';
-  }).join('')+'</div>' : '';
-  var rows = rest.map(chatRow).join('');
-  if (!rows && !pins) rows = '<p class="muted" style="text-align:center;font-size:15px;margin:40px 20px">'+(q ? 'ما فيه نتائج لـ «'+esc(q)+'»' : 'ما فيه دردشات هنا')+'</p>';
-  var arch = CHATS.filter(function(c){ return c.archived; }).length;
-  var archRow = showPins ? '<button class="trow tap karch" data-a="archive"><span class="udot"></span><span class="karch-ic">'+KIT.archive+'</span><span class="trc"><span class="trh"><span class="trn" style="font-weight:400">مؤرشفة</span><span class="trt">'+AR(arch)+'</span>'+KIT.chevFwd+'</span></span></button>' : '';
-  return pins + archRow + rows;
+  var pinned = list.filter(function(c){ return c.pinned; }), rest = list.filter(function(c){ return !c.pinned; });
+  var rows = pinned.concat(rest).map(chatRow).join('');
+  if (!rows) rows = '<p class="muted" style="text-align:center;font-size:15px;margin:40px 20px">'+(q ? 'ما فيه نتائج لـ «'+esc(q)+'»' : 'ما فيه دردشات هنا')+'</p>';
+  var archRow = (!q && f === 'all') ? '<button class="wrow wrow-arch tap" data-a="archive"><span class="wrow-arch-ic">'+GL.archive+'</span><span class="wrow-c"><span class="wrow-h"><span class="wrow-n">مؤرشفة</span></span></span></button>' : '';
+  return archRow + rows;
 }
 
 function waTabbar(){
   var ic = {
-    updates:'<svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-dasharray="4 2.2"/><circle cx="12" cy="12" r="4.5" fill="currentColor"/></svg>',
-    calls:'<svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z" fill="currentColor"/></svg>',
-    communities:'<svg width="28" height="26" viewBox="0 0 30 24" aria-hidden="true"><circle cx="15" cy="8" r="4" fill="currentColor"/><circle cx="6.5" cy="10" r="2.8" fill="currentColor"/><circle cx="23.5" cy="10" r="2.8" fill="currentColor"/><path d="M8 21c.8-4.5 3.6-6.5 7-6.5s6.2 2 7 6.5z" fill="currentColor"/></svg>',
-    chats:'<svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5c-5 0-9 3.3-9 7.6 0 2.5 1.4 4.6 3.6 6-.3 1.2-1 2.3-1.8 3 2 0 3.7-.8 4.8-1.8.8.2 1.6.3 2.4.3 5 0 9-3.4 9-7.6S17 3.5 12 3.5z" fill="currentColor"/></svg>',
-    you:KIT.personCircle
+    updates:'<svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><path d="M13 2a11 11 0 0 1 0 22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M13 24A11 11 0 0 1 5.3 5.2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="3 3.2"/><circle cx="13" cy="13" r="6.2" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>',
+    calls:'<svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>',
+    communities:'<svg width="30" height="24" viewBox="0 0 30 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="15" cy="7.5" r="3.8"/><circle cx="6.5" cy="9.5" r="2.8"/><circle cx="23.5" cy="9.5" r="2.8"/><path d="M8.5 21c.6-4.2 3.2-6.2 6.5-6.2s5.9 2 6.5 6.2zM1.5 20c.3-3 1.9-4.6 4.4-4.8M28.5 20c-.3-3-1.9-4.6-4.4-4.8" stroke-linejoin="round"/></g></svg>',
+    chats:'<svg width="30" height="26" viewBox="0 0 30 26" aria-hidden="true"><path d="M11 2.5c-5 0-9 3.2-9 7.3 0 2.3 1.3 4.3 3.3 5.7-.3 1.1-.9 2.1-1.7 2.8 1.9 0 3.5-.8 4.5-1.7.9.2 1.9.4 2.9.4 5 0 9-3.3 9-7.2S16 2.5 11 2.5z" fill="currentColor"/><path d="M22.4 8.6c.1.4.1.8.1 1.2 0 5-4.8 8.7-10.5 8.8 1.6 2 4.4 3.3 7.5 3.3.8 0 1.6-.1 2.3-.3.9.8 2.3 1.5 4 1.5-.7-.6-1.2-1.5-1.4-2.4 1.8-1.2 2.9-3 2.9-5 0-3-2-5.6-4.9-7.1z" fill="currentColor"/></svg>',
+    you: '<span class="gtab-av">'+avatar(ME_AVATAR,26)+'</span>'
   };
   var tabs = [['updates','التحديثات'],['calls','المكالمات'],['communities','المجتمعات'],['chats','الدردشات'],['you','أنت']];
   var u = unread();
-  return '<div class="ktabbar">'+tabs.map(function(t){
-    return '<button class="ktab'+(S.waTab===t[0]?' on':'')+'" data-a="waTab" data-id="'+t[0]+'">'+ic[t[0]]+'<span>'+t[1]+'</span>'
-      + (t[0]==='chats' && u ? '<span class="ktab-badge">'+AR(u)+'</span>' : '')
+  return '<div class="gtabbar"><div class="gtabs">'+tabs.map(function(t){
+    return '<button class="gtab'+(S.waTab===t[0]?' on':'')+'" data-a="waTab" data-id="'+t[0]+'">'+ic[t[0]]+'<span>'+t[1]+'</span>'
+      + (t[0]==='chats' && u ? '<span class="gtab-badge">'+AR(u)+'</span>' : '')
       + '</button>';
-  }).join('')+'</div>';
+  }).join('')+'</div></div>';
 }
 
 function kSearch(id, ph, value){
@@ -719,44 +961,76 @@ function kCell(label, value, icBg, opts){
     + '<span class="kcell-b"><span class="kcell-l">'+label+'</span>'+(value?'<span class="kcell-v">'+value+'</span>':'')+(opts.chev===false?'':KIT.chevFwd)+'</span></'+(opts.a?'button':'div')+'>';
 }
 
+var GL = {
+  more: '<svg aria-hidden="true" width="20" height="5" viewBox="0 0 20 5"><circle cx="2.5" cy="2.5" r="2.2" fill="#fff"/><circle cx="10" cy="2.5" r="2.2" fill="#fff"/><circle cx="17.5" cy="2.5" r="2.2" fill="#fff"/></svg>',
+  cam: '<svg aria-hidden="true" width="24" height="20" viewBox="0 0 24 20"><path d="M3 4.5h3.6l1.7-2.6h7.4l1.7 2.6H21a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-10a2 2 0 0 1 2-2z" fill="#fff"/><circle cx="12" cy="11.2" r="4.3" fill="#1c1c1e"/><circle cx="12" cy="11.2" r="2.8" fill="#fff"/></svg>',
+  plus: '<svg aria-hidden="true" width="20" height="20" viewBox="0 0 20 20"><path d="M10 2v16M2 10h16" stroke="#000" stroke-width="2.4" stroke-linecap="round"/></svg>',
+  back: '<svg aria-hidden="true" width="12" height="20" viewBox="0 0 12 20" class="kflip"><path d="M10 2L2 10l8 8" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+  filter: '<svg aria-hidden="true" width="22" height="16" viewBox="0 0 22 16"><path d="M2 2h18M5.5 8h11M9 14h4" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>',
+  search: '<svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="7" fill="none" stroke="#fff" stroke-width="2.2"/><path d="M15.8 15.8l5.2 5.2" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/></svg>',
+  searchSm: '<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="7" fill="none" stroke="rgba(235,235,245,.6)" stroke-width="2.4"/><path d="M15.8 15.8l5.2 5.2" stroke="rgba(235,235,245,.6)" stroke-width="2.6" stroke-linecap="round"/></svg>',
+  compose: '<svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24"><path d="M19.5 13v6.5a2 2 0 0 1-2 2h-13a2 2 0 0 1-2-2v-13a2 2 0 0 1 2-2H11" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"/><path d="M9.5 14.5l.6-3.1 9.3-9.3a1.6 1.6 0 0 1 2.3 0l.2.2a1.6 1.6 0 0 1 0 2.3l-9.3 9.3z" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round"/></svg>',
+  archive: '<svg aria-hidden="true" width="22" height="20" viewBox="0 0 22 20"><rect x="1.5" y="1.5" width="19" height="5" rx="1.2" fill="none" stroke="rgba(235,235,245,.6)" stroke-width="1.6"/><path d="M3 6.5v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-10M8.5 10.5h5" fill="none" stroke="rgba(235,235,245,.6)" stroke-width="1.6" stroke-linecap="round"/></svg>',
+  phone: '<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z" fill="#0a84ff"/></svg>',
+  dial: '<svg aria-hidden="true" width="12" height="12" viewBox="0 0 12 12"><path d="M3 9l6-6M4 3h5v5" fill="none" stroke="rgba(235,235,245,.6)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+  recv: '<svg aria-hidden="true" width="12" height="12" viewBox="0 0 12 12"><path d="M9 3L3 9M8 9H3V4" fill="none" stroke="rgba(235,235,245,.6)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+};
+function gBtn(a, label, icon, cls){ return '<button class="gbtn'+(cls?' '+cls:'')+'" '+a+' aria-label="'+label+'">'+icon+'</button>'; }
+function gTop(right, left, title){ return '<div class="gtop"><span class="gtop-s">'+(right||'')+'</span><span class="gtop-t">'+(title||'')+'</span><span class="gtop-e">'+(left||'')+'</span></div>'; }
+
 V.wa = function(){
-  var u = unread(), body;
-  var edit = '<button class="klink" data-a="locked">تعديل</button>';
-  if (S.waTab === 'chats') {
-    body = kNav(edit, '<button class="klink" data-a="locked" aria-label="دردشة جديدة">'+KIT.compose+'</button>')
-      + '<div class="scroll" id="waScroll"><h1 class="big">الدردشات</h1>'
-      + '<div class="kpad">'+kSearch('waSearch','بحث',S.waQuery)+'</div>'
-      + '<div class="kpad" style="padding-top:10px;padding-bottom:6px">'+kSeg('waFilter',[['all','الكل'],['unread','غير مقروءة'+(u?' '+AR(u):'')],['groups','المجموعات']],S.waFilter)+'</div>'
-      + '<div id="waList">'+waListHtml()+'</div></div>';
-  } else if (S.waTab === 'updates') {
-    var st = function(c, ago, i){ return '<button class="trow tap" data-a="status" data-id="'+c.id+'" style="animation-delay:'+(60+i*50)+'ms"><span class="udot"></span><span class="kring">'+avatar(c,45)+'</span><span class="trc"><span class="trh"><span class="trn">'+esc(c.name)+'</span></span><span class="trp">'+ago+'</span></span></button>'; };
-    body = kNav(edit, '') + '<div class="scroll"><h1 class="big">التحديثات</h1>'
-      + '<p class="ksec">الحالة</p>'
-      + '<button class="trow tap" data-a="status" data-id="me"><span class="udot"></span><span class="kring">'+avatar(ME_AVATAR,45)+'</span><span class="trc"><span class="trh"><span class="trn">حالتي</span></span><span class="trp">اليوم ٦:٢٠ ص</span></span></button>'
-      + '<p class="ksec">التحديثات الأخيرة</p>'
+  var body, u = unread();
+  var more = gBtn('data-a="locked"','المزيد',GL.more);
+  if (S.waTab === 'updates') {
+    var st = function(c, ago, i){ return '<button class="wrow tap" data-a="status" data-id="'+c.id+'" style="animation-delay:'+(60+i*50)+'ms"><span class="kring">'+avatar(c,46)+'</span><span class="wrow-c"><span class="wrow-h"><span class="wrow-n">'+esc(c.name)+'</span></span><span class="wrow-b"><span class="wrow-p">'+ago+'</span></span></span></button>'; };
+    body = gTop(more, gBtn('data-a="locked"','الكاميرا',GL.cam)) + '<div class="scroll gscroll"><h1 class="big">التحديثات</h1>'
+      + '<p class="gsec">الحالة</p>'
+      + '<button class="wrow tap" data-a="status" data-id="me"><span class="kring">'+avatar(ME_AVATAR,46)+'</span><span class="wrow-c"><span class="wrow-h"><span class="wrow-n">حالتي</span></span><span class="wrow-b"><span class="wrow-p">اليوم ٦:٢٠ ص</span></span></span></button>'
       + st(chatById('ceo'),'منذ ٥ دقائق',0) + st(chatById('mom'),'منذ ٢٠ دقيقة',1) + st(chatById('khala'),'اليوم ٧:٣٠ ص',2) + st(chatById('snap'),'منذ ساعة',3) + st(chatById('billionaire'),'منذ ساعتين',4)
       + '</div>';
   } else if (S.waTab === 'calls') {
-    var rows = CALLS.map(function(k,i){ return '<div class="trow" style="animation-delay:'+(60+i*45)+'ms"><span class="udot"></span>'+avatar({kind:'person',bg:'#2c2c2e',fg:'#aeaeb2'},45)+'<span class="trc"><span class="trh"><span class="trn" style="color:'+(k[3]?'#ff453a':'#fff')+'">'+esc(k[0])+'</span><span class="trt">'+k[2]+'</span>'+KIT.info+'</span><span class="trp">'+(k[3]?'فائتة':'صوتية')+'</span></span></div>'; }).join('');
-    body = kNav(edit, '') + '<div class="scroll"><h1 class="big">المكالمات</h1>'+rows+'</div>';
+    body = gTop(gBtn('data-a="locked"','تعديل','تعديل','gpill'), gBtn('data-a="locked"','اتصال جديد',GL.plus,'ggreen')) + '<div class="scroll gscroll"><h1 class="big">المكالمات</h1>'+callRows(CALLS)+'</div>';
   } else if (S.waTab === 'communities') {
-    body = kNav('', '') + '<div class="scroll"><h1 class="big">المجتمعات</h1><div style="display:flex;flex-direction:column;align-items:center;text-align:center;padding:50px 30px"><div class="rise" style="width:90px;height:90px;border-radius:22px;background:#1c1c1e;display:flex;align-items:center;justify-content:center;color:#0a84ff"><svg width="48" height="40" viewBox="0 0 30 24" aria-hidden="true"><circle cx="15" cy="8" r="4" fill="currentColor"/><circle cx="6.5" cy="10" r="2.8" fill="currentColor"/><circle cx="23.5" cy="10" r="2.8" fill="currentColor"/><path d="M8 21c.8-4.5 3.6-6.5 7-6.5s6.2 2 7 6.5z" fill="currentColor"/></svg></div><p class="rise" style="animation-delay:80ms;margin:18px 0 6px;font-size:20px;font-weight:600">ابقَ على تواصل مع مجتمعك</p><p class="muted rise" style="animation-delay:140ms;margin:0;font-size:15px;line-height:20px">عبدالله ما انضم لأي مجتمع.</p></div></div>';
-  } else {
-    var rowsY = [['الحساب','#0a84ff'],['الخصوصية','#30d158'],['الدردشات','#30d158'],['الإشعارات','#ff453a'],['التخزين والبيانات','#30b0c7']];
-    body = kNav('', '') + '<div class="scroll"><h1 class="big">أنت</h1><div class="kgroup">'
+    body = gTop(more, '') + '<div class="scroll gscroll"><h1 class="big">المجتمعات</h1><div style="display:flex;flex-direction:column;align-items:center;text-align:center;padding:50px 30px"><div class="rise" style="width:90px;height:90px;border-radius:24px;background:#1c1c1e;display:flex;align-items:center;justify-content:center;color:#25d366"><svg width="48" height="40" viewBox="0 0 30 24" aria-hidden="true"><circle cx="15" cy="8" r="4" fill="currentColor"/><circle cx="6.5" cy="10" r="2.8" fill="currentColor"/><circle cx="23.5" cy="10" r="2.8" fill="currentColor"/><path d="M8 21c.8-4.5 3.6-6.5 7-6.5s6.2 2 7 6.5z" fill="currentColor"/></svg></div><p class="rise" style="animation-delay:80ms;margin:18px 0 6px;font-size:20px;font-weight:600">ابقَ على تواصل مع مجتمعك</p><p class="muted rise" style="animation-delay:140ms;margin:0;font-size:15px;line-height:20px">عبدالله ما انضم لأي مجتمع.</p></div></div>';
+  } else if (S.waTab === 'you') {
+    var rowsY = [['الحساب','#0a84ff'],['الخصوصية','#30d158'],['الدردشات','#30d158'],['الإشعارات','#ff453a'],['التخزين والبيانات','#30d158']];
+    body = gTop('', '') + '<div class="scroll gscroll"><h1 class="big">أنت</h1><div class="kgroup gcard">'
       + '<div class="kacct">'+avatar(ME_AVATAR,60)+'<span><span class="kacct-n">عبدالله <span class="kbadge-gold">ثنيان</span></span><span class="kacct-s">باحث عن وظيفة</span></span></div></div>'
-      + '<div class="kgroup">'+rowsY.map(function(r){ return kCell(r[0],'',r[1],{a:'locked'}); }).join('')+'</div></div>';
+      + '<div class="kgroup gcard">'+rowsY.map(function(r){ return kCell(r[0],'',r[1],{a:'locked'}); }).join('')+'</div></div>';
+  } else {
+    var f = S.waFilter || 'all';
+    var chip = function(id, l){ return '<button class="wchip'+(f===id?' on':'')+'" data-a="waFilter" data-id="'+id+'">'+l+'</button>'; };
+    body = gTop(more, gBtn('data-a="locked"','الكاميرا',GL.cam) + gBtn('data-a="locked"','دردشة جديدة',GL.plus,'ggreen'))
+      + '<div class="scroll gscroll" id="waScroll"><h1 class="big">الدردشات</h1>'
+      + '<div class="kpad"><div class="gsearch">'+GL.searchSm+'<label for="waSearch" class="sr">بحث</label><input id="waSearch" type="search" placeholder="بحث" autocomplete="off" value="'+esc(S.waQuery||'')+'"></div></div>'
+      + '<div class="wchips">'+chip('all','الكل')+chip('unread','غير مقروءة'+(u?' <b>'+AR(u)+'</b>':''))+chip('fav','المفضلة')+chip('groups','المجموعات')+'<button class="wchip wchip-plus" data-a="locked" aria-label="قائمة جديدة">+</button></div>'
+      + '<div id="waList">'+waListHtml()+'</div></div>';
   }
-  return '<div class="kapp">' + body + waTabbar() + '</div>';
+  return '<div class="kapp gapp">' + body + waTabbar() + '</div>';
 };
 
 V.archive = function(){
   var rows = CHATS.filter(function(c){ return c.archived; }).map(chatRow).join('');
   return '<div class="kapp">'
-    + kNav('<button class="kback" data-a="back" data-s="wa">'+KIT.back+'<span>الدردشات</span></button>', '', 'مؤرشفة')
-    + '<div class="scroll"><p class="kfoot" style="margin-top:6px">تبقى هذه الدردشات مؤرشفة حتى لو وصلتك رسائل جديدة.</p>'+rows+'</div></div>';
+    + kNav('<button class="kback" data-a="back" data-s="wa">'+KIT.back+'<span>الدردشات</span></button>', '', 'الدردشات المؤرشفة')
+    + '<div class="scroll"><p class="kfoot" style="margin-top:6px;text-align:center">تبقى هذه الدردشات مؤرشفة حتى لو وصلتك رسائل جديدة.</p>'+rows+'</div></div>';
 };
 
+var WA_ICONS = {
+  compose: '<svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24"><path d="M19.5 13v6.5a2 2 0 0 1-2 2h-13a2 2 0 0 1-2-2v-13a2 2 0 0 1 2-2H11" fill="none" stroke="#0A84FF" stroke-width="1.7" stroke-linecap="round"/><path d="M9.5 14.5l.6-3.1 9.3-9.3a1.6 1.6 0 0 1 2.3 0l.2.2a1.6 1.6 0 0 1 0 2.3l-9.3 9.3z" fill="none" stroke="#0A84FF" stroke-width="1.7" stroke-linejoin="round"/></svg>',
+  callAdd: '<svg aria-hidden="true" width="26" height="24" viewBox="0 0 26 24"><path d="M5.6 9.8a14 14 0 0 0 6.1 6.1l2-2a.9.9 0 0 1 .95-.23 10.6 10.6 0 0 0 3.35.53.95.95 0 0 1 .95.95v3.1a.95.95 0 0 1-.95.95A15.8 15.8 0 0 1 2.2 3.4a.95.95 0 0 1 .95-.95h3.2a.95.95 0 0 1 .95.95c0 1.16.18 2.28.53 3.33a.95.95 0 0 1-.23.96z" fill="none" stroke="#0A84FF" stroke-width="1.6" stroke-linejoin="round"/><path d="M20.5 1.5v8M16.5 5.5h8" stroke="#0A84FF" stroke-width="1.7" stroke-linecap="round"/></svg>',
+  plus: '<svg aria-hidden="true" width="22" height="22" viewBox="0 0 22 22"><path d="M11 2v18M2 11h18" stroke="#0A84FF" stroke-width="2" stroke-linecap="round"/></svg>',
+  sticker: '<svg aria-hidden="true" width="22" height="22" viewBox="0 0 22 22"><path d="M13.5 20.5H6A4.5 4.5 0 0 1 1.5 16V6A4.5 4.5 0 0 1 6 1.5h10A4.5 4.5 0 0 1 20.5 6v7.5z" fill="none" stroke="#0A84FF" stroke-width="1.6" stroke-linejoin="round"/><path d="M13.5 20.5V16a2.5 2.5 0 0 1 2.5-2.5h4.5" fill="none" stroke="#0A84FF" stroke-width="1.6" stroke-linejoin="round"/></svg>',
+  cam: '<svg aria-hidden="true" width="26" height="22" viewBox="0 0 28 24"><path d="M3.5 6.5h4.2l2-3h8.6l2 3h4.2A2 2 0 0 1 26.5 8.5v11a2 2 0 0 1-2 2h-21a2 2 0 0 1-2-2v-11a2 2 0 0 1 2-2z" fill="none" stroke="#0A84FF" stroke-width="1.7" stroke-linejoin="round"/><circle cx="14" cy="13.5" r="4.6" fill="none" stroke="#0A84FF" stroke-width="1.7"/></svg>',
+  mic: '<svg aria-hidden="true" width="18" height="24" viewBox="0 0 18 24"><rect x="5" y="1.5" width="8" height="13" rx="4" fill="none" stroke="#0A84FF" stroke-width="1.7"/><path d="M1.5 11a7.5 7.5 0 0 0 15 0M9 18.5v4" fill="none" stroke="#0A84FF" stroke-width="1.7" stroke-linecap="round"/></svg>',
+  phone: '<svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z" fill="none" stroke="#0A84FF" stroke-width="1.7" stroke-linejoin="round"/></svg>'
+};
+var WA_NAMES = ['#ff9f0a','#64d2ff','#ff6482','#30d158','#bf5af2','#ffd60a','#5ac8fa','#ff453a'];
+function waNameColor(c, from){
+  c._nc = c._nc || {}; c._ni = c._ni || 0;
+  if (c._nc[from] == null) c._nc[from] = WA_NAMES[c._ni++ % WA_NAMES.length];
+  return c._nc[from];
+}
 function realMsg(m){ return m && !m.day && !m.banner && !m.sys; }
 function bubbleInner(m){
   if (m.voice) return '<button class="bvoice" data-a="voice" data-say="'+esc(m.say||'')+'" aria-label="تشغيل الرسالة الصوتية">'
@@ -768,72 +1042,88 @@ function bubbleInner(m){
   if (m.link) return '<span class="blink"><span class="blink-ic"><svg width="26" height="32" viewBox="0 0 26 32" aria-hidden="true"><path d="M2 2h15l7 7v21H2z" fill="#fff"/><path d="M6 14h14v12H6zM6 18h14M6 22h14M13 14v12" stroke="#0f9d58" stroke-width="1.4" fill="none"/></svg></span><span class="blink-t"><b>'+esc(m.t)+'</b><span dir="ltr">'+esc(m.link)+'</span></span></span>';
   return '<span class="t"'+(m.ltr?' dir="ltr"':'')+'>'+esc(m.t)+'</span>';
 }
-function bubble(c, m, tail, showName, delay){
-  if (m.sys) return '<p class="bsys">'+esc(m.sys)+'</p>';
-  var media = m.img;
-  return (showName ? '<p class="bsn">'+esc(m.from)+'</p>' : '')
-    + '<div class="bub '+(m.mine?'me':'them')+(tail && !media ? ' tl' : '')+(media?' media':'')+'" data-from="'+esc(m.mine?'me':m.from)+'"'+(delay!=null?' style="animation-delay:'+delay+'ms"':'')+'>'+bubbleInner(m)+'</div>';
+function bubble(c, m, first, showName, delay){
+  if (m.sys) return '<p class="wsys">'+esc(m.sys)+'</p>';
+  var media = !!m.img;
+  var meta = '<span class="wmeta">'+m.time+(m.mine ? ' '+WA_TICKS : '')+'</span>';
+  return '<div class="bub wb '+(m.mine?'me':'them')+(first ? ' tl' : '')+(media?' media':'')+'" data-from="'+esc(m.mine?'me':m.from)+'"'+(delay!=null?' style="animation-delay:'+delay+'ms"':'')+'>'
+    + (showName ? '<p class="wsn" style="color:'+waNameColor(c, m.from)+'">'+esc(m.from)+'</p>' : '')
+    + bubbleInner(m) + meta + '</div>';
 }
-function receipt(m){ return '<p class="rcpt"><b>تمت القراءة</b> '+m.time+'</p>'; }
-var TYPING_HTML = '<div class="bub them tl typing-dots">'+[0,.15,.3].map(function(dl){ return '<span style="animation:lpDot 1.2s infinite '+dl+'s"></span>'; }).join('')+'</div>';
+var TYPING_HTML = '<div class="bub wb them tl typing-dots">'+[0,.15,.3].map(function(dl){ return '<span style="animation:lpDot 1.2s infinite '+dl+'s"></span>'; }).join('')+'</div>';
 function appendBubble(c, msg){
   var inner = $('chatInner'); if (!inner) return;
-  var r = inner.querySelector('.rcpt'); if (r) r.remove();
   var dots = inner.querySelector('.typing-dots');
   var prev = dots ? dots.previousElementSibling : inner.lastElementChild;
   var from = msg.sys ? null : (msg.mine ? 'me' : msg.from);
   var same = prev && from && prev.classList.contains('bub') && prev.getAttribute('data-from') === from;
-  if (same) prev.classList.remove('tl');
-  var html = bubble(c, msg, true, c.group && !msg.mine && !msg.sys && !same) + (msg.mine ? receipt(msg) : '');
+  var html = bubble(c, msg, !same, c.group && !msg.mine && !msg.sys && !same);
   if (dots) dots.insertAdjacentHTML('beforebegin', html); else inner.insertAdjacentHTML('beforeend', html);
 }
 
 V.chat = function(){
   var c = chatById(S.chatId), msgs = c.msgs, n = msgs.length;
-  var lastReal = -1; for (var k = n - 1; k >= 0; k--) if (realMsg(msgs[k])) { lastReal = k; break; }
   var body = msgs.map(function(m,i){
-    if (m.day) { var nx = null; for (var j = i + 1; j < n; j++) if (realMsg(msgs[j])) { nx = msgs[j]; break; } return '<p class="bday"><b>'+m.day+'</b>'+(nx ? ' '+nx.time : '')+'</p>'; }
-    if (m.banner) return '<p class="bsys">'+m.banner+'</p>';
+    if (m.day) return '<p class="wday">'+m.day+'</p>';
+    if (m.banner) return '<p class="wsys">'+m.banner+'</p>';
     if (m.sys) return bubble(c, m);
-    var pv = msgs[i-1], nx2 = msgs[i+1];
-    var sameAs = function(o){ return realMsg(o) && !!o.mine === !!m.mine && (m.mine || o.from === m.from); };
-    var html = bubble(c, m, !sameAs(nx2), c.group && !m.mine && !sameAs(pv), Math.max(0, i-(n-10))*35+80);
-    if (i === lastReal && m.mine) html += receipt(m);
-    return html;
+    var pv = msgs[i-1];
+    var same = realMsg(pv) && !!pv.mine === !!m.mine && (m.mine || pv.from === m.from);
+    return bubble(c, m, !same, c.group && !m.mine && !same, Math.max(0, i-(n-10))*35+80);
   }).join('');
   var typing = S.typing && c.typing;
+  var others = 0; CHATS.forEach(function(o){ if (o.id !== c.id && !S.read[o.id]) others += o.unread; });
   return '<div class="kapp">'
-    + '<div class="kthread-h">'
-    + '<button class="kback" data-a="back" data-s="'+(c.archived?'archive':'wa')+'" aria-label="رجوع">'+KIT.back+'</button>'
-    + '<div class="kthread-who">'+avatar(c,50)+'<span><span class="kthread-n">'+esc(c.name)+'</span>'+KIT.chevFwdSm+'</span><span id="chatSub" class="kthread-s'+(typing?' typing':'')+'">'+(typing?'يكتب…':esc(c.sub))+'</span></div>'
-    + '<button class="kback" data-a="locked" aria-label="مكالمة فيديو">'+KIT.video+'</button></div>'
-    + '<div class="scroll" style="display:flex;flex-direction:column-reverse"><div id="chatInner" class="kthread">'
-    + '<p class="bsys" style="margin-bottom:6px">الرسائل والمكالمات مشفرة تمامًا بين الطرفين.</p>'
+    + '<div class="wthread-h">'
+    + '<button class="kback" data-a="back" data-s="'+(c.archived?'archive':'wa')+'" aria-label="رجوع">'+KIT.back+(others?'<span>'+AR(others)+'</span>':'')+'</button>'
+    + avatar(c,36)
+    + '<div class="wthread-who"><span class="wthread-n">'+esc(c.name)+'</span><span id="chatSub" class="kthread-s'+(typing?' typing':'')+'">'+(typing?'يكتب…':esc(c.sub))+'</span></div>'
+    + '<button class="klink" data-a="locked" aria-label="اتصال">'+WA_ICONS.callAdd+'</button></div>'
+    + '<div class="scroll wwall" style="display:flex;flex-direction:column-reverse"><div id="chatInner" class="wthread">'
+    + '<p class="wsys wenc">الرسائل والمكالمات مشفرة تمامًا بين الطرفين. لا أحد خارج هذه الدردشة، ولا حتى واتساب، يمكنه قراءتها أو الاستماع إليها.</p>'
     + body + (typing ? TYPING_HTML : '') + '</div></div>'
-    + '<div class="kcompose"><button class="kfield" data-a="locked"><span>رسالة</span>'+KIT.dictation+'</button></div></div>';
+    + '<div class="wcompose"><button class="klink" data-a="locked" aria-label="إرفاق">'+WA_ICONS.plus+'</button>'
+    + '<button class="wfield" data-a="locked" aria-label="اكتب رسالة"><span></span>'+WA_ICONS.sticker+'</button>'
+    + '<button class="klink" data-a="locked" aria-label="الكاميرا">'+WA_ICONS.cam+'</button>'
+    + '<button class="klink" data-a="locked" aria-label="رسالة صوتية">'+WA_ICONS.mic+'</button></div></div>';
 };
 
-V.phone = function(){
-  var rows = CALLS.filter(function(k){ return S.calls === 'all' || k[3]; }).map(function(k,i){
-    return '<div class="trow" style="animation-delay:'+(60+i*45)+'ms"><span class="udot"></span><span class="trc" style="height:auto;padding:10px 0"><span class="trh"><span class="trn" style="color:'+(k[3]?'#ff453a':'#fff')+'">'+esc(k[0])+'</span><span class="trt">'+k[2]+'</span>'+KIT.info+'</span><span class="trp">'+k[1]+'</span></span></div>';
+function callRows(list){
+  var g = [];
+  list.filter(function(k){ return S.calls === 'all' || k[3]; }).forEach(function(k){
+    var last = g[g.length-1];
+    if (last && last.k[0] === k[0] && !!last.k[3] === !!k[3]) last.n++; else g.push({ k:k, n:1 });
+  });
+  return g.map(function(x,i){
+    var k = x.k, out = k[1].indexOf('صادرة') !== -1, via = k[1].indexOf('واتساب') !== -1 ? 'واتساب' : 'جوال';
+    var initial = k[0].replace(/[^؀-ۿA-Za-z]/g,'').replace(/^ال/,'').charAt(0);
+    return '<div class="crow rise" style="animation-delay:'+(60+i*45)+'ms"><span class="crow-av">'+esc(initial)+'</span>'
+      + '<span class="crow-c"><span class="crow-l"><span class="crow-n'+(k[3]?' miss':'')+'">'+esc(k[0])+'</span><span class="crow-d">'+(out?GL.dial:GL.recv)+' '+via+(x.n>1?' ('+AR(x.n)+')':'')+'</span></span>'
+      + '<span class="crow-t">'+k[2]+'</span><button class="gbtn gbtn-sm" data-a="locked" aria-label="اتصال">'+GL.phone+'</button></span></div>';
   }).join('');
-  var tabs = [['fav','المفضلة',KIT.star],['rec','الحديثة',KIT.clock],['con','جهات الاتصال',KIT.personCircle],['key','لوحة المفاتيح',KIT.keypad]];
-  return '<div class="kapp">'
-    + kNav('<button class="klink" data-a="locked">تعديل</button>', '', kSeg('calls',[['all','الكل'],['missed','الفائتة']],S.calls))
-    + '<div class="scroll"><h1 class="big">الحديثة</h1>'+rows+'</div>'
-    + '<div class="ktabbar">'+tabs.map(function(t){ return '<span class="ktab'+(t[0]==='rec'?' on':'')+'">'+t[2]+'<span>'+t[1]+'</span></span>'; }).join('')+'</div></div>';
+}
+V.phone = function(){
+  var tabs = [['rec','المكالمات',KIT.clock],['con','جهات الاتصال',KIT.personCircle],['key','لوحة المفاتيح',KIT.keypad]];
+  var missed = S.calls === 'missed';
+  return '<div class="kapp gapp">'
+    + gTop(gBtn('data-a="locked"','تعديل','تعديل','gpill'), gBtn('data-a="calls" data-id="'+(missed?'all':'missed')+'"', missed?'كل المكالمات':'الفائتة فقط', GL.filter, missed?'gon':''), 'المكالمات')
+    + '<div class="scroll gscroll">'+callRows(CALLS)+'</div>'
+    + '<div class="gtabbar"><div class="gtabs gtabs-3">'+tabs.map(function(t){ return '<span class="gtab'+(t[0]==='rec'?' on blue':'')+'">'+t[2]+'<span>'+t[1]+'</span></span>'; }).join('')+'</div>'
+    + gBtn('data-a="locked"','بحث',GL.search,'gbtn-lg')+'</div></div>';
 };
 
 V.notes = function(){
-  var rows = NOTES.map(function(n,i){ return '<button class="kcell kcell-2 tap rise" data-a="note" data-id="'+i+'" style="animation-delay:'+(80+i*45)+'ms"><span class="kcell-b"><span class="kcell-l"><b>'+esc(n.title)+'</b><span class="kcell-sub"><span>'+n.time+'</span>  '+esc(n.lines[0])+'</span></span></span></button>'; }).join('');
-  return '<div class="kapp">'+kNav('','<button class="klink" data-a="locked" aria-label="المزيد">'+KIT.more+'</button>')
-    + '<div class="scroll"><h1 class="big">الملاحظات</h1><div class="kpad" style="margin-bottom:16px">'+kSearch('','بحث')+'</div><div class="kgroup">'+rows+'</div><p class="kfoot" style="text-align:center">'+AR(NOTES.length)+' ملاحظات</p></div></div>';
+  var rows = NOTES.map(function(n,i){ return '<button class="nrow tap rise" data-a="note" data-id="'+i+'" style="animation-delay:'+(80+i*45)+'ms"><b>'+esc(n.title)+'</b><span><span class="nrow-t">'+n.time+'</span>'+esc(n.lines[0])+'</span></button>'; }).join('');
+  return '<div class="kapp gapp">'+gTop(gBtn('data-a="home"','رجوع',GL.back), gBtn('data-a="locked"','المزيد',GL.more))
+    + '<div class="scroll gscroll"><h1 class="big" style="margin-bottom:0">الملاحظات</h1><p class="gcount">'+AR(NOTES.length)+' ملاحظات</p>'
+    + '<p class="gsec">آخر ٧ أيام</p><div class="ncard">'+rows+'</div></div>'
+    + '<div class="gbottom"><div class="gsearch gsearch-float">'+GL.searchSm+'<span>بحث</span>'+KIT.micSmall+'</div>'+gBtn('data-a="locked"','ملاحظة جديدة',GL.compose,'gbtn-lg')+'</div></div>';
 };
 
 V.note = function(){
   var n = NOTES[S.noteIdx];
-  var lines = n.lines.map(function(l,i){ return '<div class="rise" style="animation-delay:'+(120+i*50)+'ms;display:flex;align-items:flex-start;gap:10px;margin-bottom:8px">'+(n.check?'<span style="width:22px;height:22px;margin-top:0;flex-shrink:0;border-radius:50%;border:1.5px solid rgba(235,235,245,.3)"></span>':'')+'<span style="font-size:17px;line-height:22px;letter-spacing:-.41px">'+esc(l)+'</span></div>'; }).join('');
-  return '<div class="kapp">'+kNav('<button class="kback" data-a="back" data-s="notes">'+KIT.back+'<span>الملاحظات</span></button>','')
+  var lines = n.lines.map(function(l,i){ return '<div class="rise" style="animation-delay:'+(120+i*50)+'ms;display:flex;align-items:flex-start;gap:10px;margin-bottom:8px">'+(n.check?'<span style="width:22px;height:22px;flex-shrink:0;border-radius:50%;border:1.5px solid rgba(235,235,245,.3)"></span>':'')+'<span style="font-size:17px;line-height:22px;letter-spacing:-.41px">'+esc(l)+'</span></div>'; }).join('');
+  return '<div class="kapp gapp">'+gTop(gBtn('data-a="back" data-s="notes"','الملاحظات',GL.back), gBtn('data-a="locked"','المزيد',GL.more))
     + '<div class="scroll" style="padding:4px 20px 40px"><p class="muted" style="margin:0;text-align:center;font-size:13px">'+n.time+'</p><h2 style="margin:6px 0 12px;font-size:28px;line-height:34px;font-weight:700">'+esc(n.title)+'</h2>'+lines+'</div></div>';
 };
 
@@ -898,7 +1188,7 @@ V.pass = function(){
     + '<p style="margin:0;font-size:20px;line-height:25px;letter-spacing:.38px">أدخل رمز الدخول</p>'
     + '<div id="dots" dir="ltr" style="display:flex;gap:24px;margin:22px 0 8px'+(S.shake?';animation:lpShake .45s ease':'')+'">'+dots+'</div>'
     + '<p style="margin:0;height:18px;font-size:13px;color:#ff453a">'+(S.codeErr?'رمز غير صحيح':'')+'</p>'
-    + '<div dir="ltr" style="display:grid;grid-template-columns:repeat(3,78px);gap:16px 28px;margin-top:30px">'+pad+'</div>'
+    + '<div dir="ltr" style="display:grid;grid-template-columns:repeat(3,78px);gap:18px 24px;margin-top:30px">'+pad+'</div>'
     + '<div dir="ltr" style="width:290px;display:flex;justify-content:flex-end;margin-top:22px"><button data-a="passBack" style="font-size:17px;padding:8px 4px">'+(S.code.length?'حذف':'إلغاء')+'</button></div></div>';
 };
 
@@ -1067,7 +1357,7 @@ function deliver(p){
   var t = nowTime(), texts = p.texts || [p.text];
   var lastDay = null; for (var k = c.msgs.length - 1; k >= 0; k--) if (c.msgs[k].day) { lastDay = c.msgs[k].day; break; }
   var viewing = S.screen === 'chat' && S.chatId === c.id;
-  if (lastDay !== 'اليوم') { c.msgs.push(D('اليوم')); if (viewing && $('chatInner')) $('chatInner').insertAdjacentHTML('beforeend', '<p class="bday"><b>اليوم</b> '+t+'</p>'); }
+  if (lastDay !== 'اليوم') { c.msgs.push(D('اليوم')); if (viewing && $('chatInner')) $('chatInner').insertAdjacentHTML('beforeend', '<p class="wday">اليوم</p>'); }
   texts.forEach(function(tx){ var m = M(p.from, tx, t); c.msgs.push(m); if (viewing) appendBubble(c, m); });
   c.when = t;
   if (viewing) return;
@@ -1099,8 +1389,8 @@ function hideBanner(){
   var b = $('banner');
   clearTimeout(bannerTimer);
   if (!b) return;
-  b.classList.remove('show'); b.id = '';
-  setTimeout(function(){ if (b.parentNode) b.parentNode.removeChild(b); }, 350);
+  b.classList.remove('show'); b.classList.add('hide'); b.id = '';
+  setTimeout(function(){ if (b.parentNode) b.parentNode.removeChild(b); }, 420);
 }
 
 var unlocking = false;
@@ -1152,7 +1442,7 @@ var A = {
   },
   back: function(el){ go(el.getAttribute('data-s')); },
   archive: function(){ go('archive'); },
-  waFilter: function(el){ S.waFilter = el.getAttribute('data-id'); var l = $('waList'); if (l) { l.innerHTML = waListHtml(); l.classList.add('quiet'); } document.querySelectorAll('.kseg button').forEach(function(c){ var on = c.getAttribute('data-id') === S.waFilter; c.classList.toggle('on', on); c.setAttribute('aria-selected', on); }); },
+  waFilter: function(el){ S.waFilter = el.getAttribute('data-id'); var l = $('waList'); if (l) { l.innerHTML = waListHtml(); l.classList.add('quiet'); } document.querySelectorAll('.wchip[data-id]').forEach(function(c){ c.classList.toggle('on', c.getAttribute('data-id') === S.waFilter); }); },
   waTab: function(el){ var t = el.getAttribute('data-id'); if (t === S.waTab) return; S.waTab = t; S.anim = 'fade'; render(); },
   locked: function(){ S.alert = 'ما تقدر ترسل أو تعدّل من جوال غيرك 😅'; renderAlert(); },
   status: function(el){
@@ -1280,12 +1570,10 @@ var call = null, live = { state:'idle', i:0, timer:null };
 
 function ringTone(){
   try {
-    var AC = window.AudioContext || window.webkitAudioContext; if (!AC) return null;
-    var ctx = new AC(), g = ctx.createGain(); g.gain.value = 0; g.connect(ctx.destination);
-    [440, 480].forEach(function(f){ var o = ctx.createOscillator(); o.frequency.value = f; o.connect(g); o.start(); });
-    var t = ctx.currentTime + .05;
-    for (var i = 0; i < 8; i++) { var s = t + i*3; g.gain.setValueAtTime(0, s); g.gain.linearRampToValueAtTime(.06, s+.05); g.gain.setValueAtTime(.06, s+1.3); g.gain.linearRampToValueAtTime(0, s+1.4); }
-    return ctx;
+    var a = new Audio('ringtone.mp3');
+    a.loop = true; a.volume = .8;
+    var p = a.play(); if (p && p.catch) p.catch(function(){});
+    return { close: function(){ a.pause(); a.currentTime = 0; } };
   } catch(e){ return null; }
 }
 function ringCeo(){
@@ -1332,8 +1620,8 @@ function endCall(how){
   stopRing();
   var el = $('callScr'), c = call.c;
   var finish = function(){
-    el.style.animation = 'none'; el.classList.add('out');
-    setTimeout(function(){ el.remove(); }, 320);
+    el.style.animation = ''; el.classList.add('out');
+    setTimeout(function(){ el.remove(); }, 420);
     call = null; afterCall(c, how);
   };
   if (how === 'hungup') {
