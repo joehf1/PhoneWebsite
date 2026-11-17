@@ -111,6 +111,11 @@ html.mobile .homebar{bottom:env(safe-area-inset-bottom, 0px)}
 @keyframes lpFlash{0%{opacity:.95}100%{opacity:0}}
 @keyframes lpSpin{from{transform:rotate(0)}to{transform:rotate(180deg)}}
 @keyframes lpBar{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes lpRing{0%{transform:scale(1);opacity:.45}100%{transform:scale(1.85);opacity:0}}
+.callscr{position:absolute;inset:0;z-index:7;display:flex;flex-direction:column;align-items:center;direction:rtl;background:radial-gradient(90% 50% at 50% 30%,rgba(120,84,44,.55),transparent 70%),linear-gradient(#2a1d10,#0c0805 75%);animation:lpFade .3s ease-out backwards;transition:opacity .25s ease}
+.callbtn{display:flex;flex-direction:column;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,.9)}
+.callbtn > span:first-child{width:72px;height:72px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:filter .15s}
+.callbtn:active > span:first-child{filter:brightness(.75)}
 .chip{padding:5px 12px;border-radius:16px;border:1px solid #2c2c2e;color:rgba(235,235,245,.75);transition:background .2s,color .2s,border-color .2s}
 .chip.on{background:#103529;color:#21c063;border-color:#103529;font-weight:600}
 .wtab{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;font-size:10px;color:rgba(235,235,245,.65);padding-top:2px}
@@ -311,7 +316,6 @@ var HISTORY = ['أفضل طريقة لتغليف العطور للشحن','ال�
 var PUSHES = [
   { after: 6000,  chat: 'mom',   from: 'الوالدة',          texts: ['عبدالله جيت أطلع ملابسك الشتوية ولقيت ريحة عطر فايحة منها للحين!','متى آخر مرة لبستها؟'] },
   { after: 20000, sms: true,     from: 'الرسائل',          text: 'تم  رفع دعوى : عنوان الدعوى ( العطر جامد )' },
-  { after: 30000, chat: 'ceo',   from: 'الرئيس التنفيذي', texts: ['ادق عليك ثلاث مرات ليه ماترد احتاجك تداوم الجمعة'] },
   { after: 60000, chat: 'khala', from: 'خالتي نورة',       texts: ['هالعطر خلص ابي واحد ثاني'] }
 ];
 var SONGS = [['مقادير','طلال مداح','linear-gradient(135deg,#7a2a3a,#2a1020)'],['المسافر','راشد الماجد','linear-gradient(135deg,#2a4a7a,#0e1a30)'],['يا سعود العلي','عبدالعزيز العليوي','linear-gradient(135deg,#6a5a2a,#221c0c)']];
@@ -323,7 +327,7 @@ try { if (localStorage.getItem('thnyan_lp_solved') === '1') S.solved = true; } c
 function chatById(id){ return CHATS.filter(function(x){ return x.id === id; })[0]; }
 function preview(c){
   for (var i = c.msgs.length - 1; i >= 0; i--) {
-    var m = c.msgs[i]; if (m.day || m.banner) continue;
+    var m = c.msgs[i]; if (m.day || m.banner || m.sys) continue;
     var t = m.voice ? '🎤 رسالة صوتية (' + m.voice + ')' : m.img ? '📷 صورة' : m.link ? '🔗 ' + m.t : m.t;
     t = t.replace(/\n/g, ' ');
     if (m.mine) return '✓✓ ' + t;
@@ -520,6 +524,7 @@ V.chat = function(){
   var names = {}, ci = 0, prev = null, n = c.msgs.length;
   var body = c.msgs.map(function(m,i){
     if (m.day) { prev = null; return '<div style="display:flex;justify-content:center;margin:8px 0 6px"><span style="padding:4px 10px;border-radius:8px;background:#182229;font-size:11.5px;color:rgba(235,235,245,.75)">'+m.day+'</span></div>'; }
+    if (m.sys) { prev = null; return sysPill(m.sys); }
     if (m.banner) { prev = null; return '<div style="margin:6px -10px;padding:5px 0;background:rgba(24,34,41,.9);text-align:center;font-size:12px;color:rgba(235,235,245,.8)">'+m.banner+'</div>'; }
     var same = prev && ((prev.mine && m.mine) || (!prev.mine && !m.mine && prev.from === m.from));
     var delay = Math.max(0, i-(n-10))*35+80;
@@ -789,6 +794,7 @@ function nowTime(){ var d = new Date(), h = d.getHours(); return (h%12||12)+':'+
 function startPushes(){
   if (pushesStarted) return; pushesStarted = true;
   PUSHES.forEach(function(p){ pushTimers.push(setTimeout(function(){ deliver(p); }, p.after)); });
+  pushTimers.push(setTimeout(ringCeo, CEO_CALL.after));
 }
 var SMS_ICON = '<div style="width:44px;height:44px;border-radius:11px;background:linear-gradient(#5df57a,#22c24a);display:flex;align-items:center;justify-content:center"><svg width="28" height="26" viewBox="0 0 28 26" aria-hidden="true"><path d="M14 2C7.4 2 2 6.4 2 11.8c0 3.1 1.8 5.9 4.6 7.7L5.4 24l5.1-2.8c1.1.3 2.3.4 3.5.4 6.6 0 12-4.4 12-9.8S20.6 2 14 2z" fill="#fff"/></svg></div>';
 function deliver(p){
@@ -972,6 +978,160 @@ var A = {
     else if (navigator.clipboard) navigator.clipboard.writeText(data.text + ' ' + data.url).then(function(){ S.alert = 'انسخ الرابط وأرسله لربعك ✓'; renderAlert(); });
   }
 };
+
+/* ====== live CEO scene: incoming call, then the chat plays out ====== */
+var CEO_CALL = {
+  after: 28000, ring: 20000, chat: 'ceo',
+  declined: 'ليه ما ترد؟',
+  missed: 'ليه ما ترد؟ اتصلت عليك',
+  ended: 'انتهت المكالمة… قفّل الخط'
+};
+// wait = pause before the line (ms); type = how long "يكتب…" shows first
+var CEO_LIVE = [
+  { t:'؟؟؟' },
+  { me:true, t:'انت قلت لي فكر برا الصندوق', wait:3000 },
+  { me:true, t:'ولا ؟', wait:1200 },
+  { t:'عندك الصندوق ؟', wait:530, type:1330 },
+  { me:true, t:'ليه', wait:1200 },
+  { t:'عشان تحط به اغراضك وتتوكل على الله', wait:630, type:2230 },
+  { me:true, t:'وين بتنقلون مكتبي؟', wait:1530 },
+  { sys:'تم حظرك', wait:1100 },
+  { sys:'تم فك الحظر', wait:1100 },
+  { t:'ياخي حرام عليك دمرت الشركة', wait:450, type:1870 },
+  { t:'ياخي شلون تفكر انت', wait:490, type:1510 },
+  { t:'شلون', wait:640, type:900 },
+  { sys:'تم حظرك', wait:1100 },
+  { sys:'تم فك الحظر', wait:1800 },
+  { t:'حل المشكلة انت ومدير التسويق', wait:640, type:1960 },
+  { t:'مشكلتكم تحلونها قبل نهاية اليوم', wait:420, type:2100 },
+  { sys:'تم حظرك', wait:1100 }
+];
+
+function sysPill(t){ return '<div style="display:flex;justify-content:center;margin:8px 0 6px;animation:lpBubble .32s cubic-bezier(.2,.9,.3,1) backwards"><span style="padding:4px 10px;border-radius:8px;background:#182229;font-size:11.5px;color:rgba(235,235,245,.75)">'+esc(t)+'</span></div>'; }
+var PHONE_IC = '<svg width="30" height="30" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z" fill="#fff"/></svg>';
+var DECLINE_BTN = function(a, label){ return '<button class="callbtn" data-a="'+a+'" aria-label="'+label+'"><span style="background:#ff3b30"><span style="display:flex;transform:rotate(135deg)">'+PHONE_IC+'</span></span><span>'+label+'</span></button>'; };
+var TYPING_DOTS = '<div class="bub typing-dots" style="align-self:flex-start;margin-top:6px;background:#202c33;padding:11px 13px;display:flex;gap:4px">'+[0,.15,.3].map(function(dl){ return '<span style="width:7px;height:7px;border-radius:50%;background:#aebac1;animation:lpDot 1.2s infinite '+dl+'s"></span>'; }).join('')+'</div>';
+
+var call = null, live = { state:'idle', i:0, timer:null };
+
+function ringTone(){
+  try {
+    var AC = window.AudioContext || window.webkitAudioContext; if (!AC) return null;
+    var ctx = new AC(), g = ctx.createGain(); g.gain.value = 0; g.connect(ctx.destination);
+    [440, 480].forEach(function(f){ var o = ctx.createOscillator(); o.frequency.value = f; o.connect(g); o.start(); });
+    var t = ctx.currentTime + .05;
+    for (var i = 0; i < 8; i++) { var s = t + i*3; g.gain.setValueAtTime(0, s); g.gain.linearRampToValueAtTime(.06, s+.05); g.gain.setValueAtTime(.06, s+1.3); g.gain.linearRampToValueAtTime(0, s+1.4); }
+    return ctx;
+  } catch(e){ return null; }
+}
+function ringCeo(){
+  if (call) return;
+  if (S.screen === 'face' || S.screen === 'pass' || S.screen === 'reveal' || S.alert || closing || unlocking) { pushTimers.push(setTimeout(ringCeo, 4000)); return; }
+  var c = chatById(CEO_CALL.chat);
+  hideBanner();
+  call = { c:c, state:'ringing' };
+  var el = document.createElement('div');
+  el.id = 'callScr'; el.className = 'callscr'; el.setAttribute('role', 'dialog'); el.setAttribute('aria-label', 'مكالمة واردة من ' + c.name);
+  el.innerHTML = '<div style="margin-top:110px;text-align:center"><p id="callSub" style="margin:0;font-size:14px;color:rgba(235,235,245,.7)">مكالمة صوتية عبر واتساب</p>'
+    + '<p style="margin:4px 0 0;font-size:30px;font-weight:600">'+esc(c.name)+'</p></div>'
+    + '<div style="position:relative;margin-top:64px;display:flex;align-items:center;justify-content:center">'
+    + [0, 1.1].map(function(dl){ return '<span id="callRing'+dl+'" style="position:absolute;inset:0;border-radius:50%;border:2px solid rgba(232,201,154,.6);animation:lpRing 2.2s ease-out infinite '+dl+'s"></span>'; }).join('')
+    + avatar(c, 116) + '</div>'
+    + '<div id="callBtns" style="margin-top:auto;width:100%;padding:0 48px 76px;display:flex;justify-content:space-between;direction:ltr">'
+    + DECLINE_BTN('callDecline', 'رفض')
+    + '<button class="callbtn" data-a="callAccept" aria-label="قبول"><span style="background:#34c759">'+PHONE_IC+'</span><span>قبول</span></button></div>';
+  $('screen').appendChild(el);
+  call.ctx = ringTone();
+  if (navigator.vibrate) { try { navigator.vibrate([500,300,500]); } catch(e){} call.vib = setInterval(function(){ try { navigator.vibrate([500,300,500]); } catch(e){} }, 3000); }
+  call.timer = setTimeout(function(){ endCall('missed'); }, CEO_CALL.ring);
+}
+function stopRing(){
+  clearTimeout(call.timer); clearInterval(call.vib); clearInterval(call.tick);
+  try { if (navigator.vibrate) navigator.vibrate(0); } catch(e){}
+  try { if (call.ctx) call.ctx.close(); } catch(e){}
+  call.ctx = null;
+  document.querySelectorAll('#callScr [id^="callRing"]').forEach(function(r){ r.remove(); });
+}
+function acceptCall(){
+  if (!call || call.state !== 'ringing') return;
+  stopRing(); call.state = 'active';
+  var t0 = Date.now(), sub = $('callSub');
+  sub.textContent = 'جارٍ الاتصال…';
+  $('callBtns').style.justifyContent = 'center';
+  $('callBtns').innerHTML = DECLINE_BTN('callEnd', 'إنهاء');
+  call.tick = setInterval(function(){ var s = Math.floor((Date.now() - t0) / 1000); sub.textContent = AR('0:' + String(s).padStart(2, '0')); }, 1000);
+  call.timer = setTimeout(function(){ endCall('hungup'); }, 4200);
+}
+function endCall(how){
+  if (!call) return;
+  stopRing();
+  var el = $('callScr'), c = call.c;
+  var finish = function(){
+    el.style.opacity = '0';
+    setTimeout(function(){ el.remove(); }, 260);
+    call = null; afterCall(c, how);
+  };
+  if (how === 'hungup') {
+    call.state = 'ended';
+    $('callSub').textContent = CEO_CALL.ended;
+    $('callBtns').style.visibility = 'hidden';
+    setTimeout(finish, 1600);
+  } else finish();
+}
+function afterCall(c, how){
+  var missed = how === 'missed' || how === 'declined';
+  CALLS.unshift([c.name, missed ? 'واتساب · مكالمة فائتة' : 'واتساب · مكالمة واردة', AR(nowTime()), missed ? 1 : 0]);
+  if (S.screen === 'phone') { S.anim = 'none'; render(); }
+  c.typing = false; c.sub = 'متصل الآن';
+  live.state = 'pending';
+  live.i = missed ? 0 : 1;
+  deliver({ chat:c.id, from:c.name, texts:[ missed ? CEO_CALL[how] : CEO_LIVE[0].t ] });
+  if (S.screen === 'chat' && S.chatId === c.id) runLive();
+}
+
+function liveViewing(){ return S.screen === 'chat' && S.chatId === CEO_CALL.chat; }
+function runLive(){
+  if (live.state !== 'pending' && live.state !== 'paused') return;
+  live.state = 'running'; liveStep(1200);
+}
+function liveStep(firstWait){
+  var m = CEO_LIVE[live.i];
+  if (!m) { live.state = 'done'; return; }
+  live.timer = setTimeout(function(){
+    if (!liveViewing()) { live.state = 'paused'; return; }
+    if (!m.type) { livePost(m); return; }
+    liveTyping(true);
+    live.timer = setTimeout(function(){
+      liveTyping(false);
+      if (!liveViewing()) { live.state = 'paused'; return; }
+      livePost(m);
+    }, m.type);
+  }, firstWait || m.wait || 800);
+}
+function liveTyping(on){
+  var c = chatById(CEO_CALL.chat), sub = $('chatSub'), inner = $('chatInner');
+  if (sub) { sub.textContent = on ? 'يكتب…' : c.sub; sub.style.color = on ? '#21c063' : 'rgba(235,235,245,.6)'; }
+  if (!inner) return;
+  var d = inner.querySelector('.typing-dots'); if (d) d.remove();
+  if (on) inner.insertAdjacentHTML('beforeend', TYPING_DOTS);
+}
+function livePost(m){
+  var c = chatById(CEO_CALL.chat), t = nowTime();
+  var prev = null; for (var k = c.msgs.length - 1; k >= 0; k--) if (!c.msgs[k].day) { prev = c.msgs[k]; break; }
+  var msg = m.sys ? { sys:m.sys } : m.me ? ME(m.t, t) : M(c.name, m.t, t);
+  c.msgs.push(msg); c.when = t;
+  var same = prev && !prev.sys && !prev.banner && !msg.sys && !!prev.mine === !!msg.mine;
+  var html = msg.sys ? sysPill(msg.sys)
+    : '<div class="bub" style="margin-top:'+(same?0:6)+'px;align-self:'+(msg.mine?'flex-end':'flex-start')+';background:'+(msg.mine?'#005c4b':'#202c33')+'"><span class="t" style="white-space:pre-line">'+esc(msg.t)+'</span><span class="tm">'+t+(msg.mine?' ✓✓':'')+'</span></div>';
+  var inner = $('chatInner'); if (inner) inner.insertAdjacentHTML('beforeend', html);
+  live.i++; liveStep();
+}
+
+A.callAccept = acceptCall;
+A.callDecline = function(){ if (call && call.state === 'ringing') endCall('declined'); };
+A.callEnd = function(){ if (call && call.state === 'active') { clearTimeout(call.timer); endCall('hungup'); } };
+var openChat = A.chat;
+A.chat = function(el){ openChat(el); if (el.getAttribute('data-id') === CEO_CALL.chat) runLive(); };
 
 document.addEventListener('click', function(e){
   var el = e.target.closest('[data-a]');
